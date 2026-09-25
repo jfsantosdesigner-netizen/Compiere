@@ -41,6 +41,8 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 - TODO nicho aberto (3+ painéis/tamponamentos, 2+ horizontais, até 2 m × 1,2 m; peças "Vista" fora) = DETALHE embaixo da tabela, balões só lá; vários detalhes lado a lado.
 - Item escondido atrás dos módulos (ex.: painel nas costas da ilha) = DETALHE - COSTAS visto de trás.
 - Cotas: parede/móvel pequeno amplia até 1:20 ou 1:15 (ocupando até 75% do espaço).
+- Listagem BEM FRONTAL (câmera 3°). Contornos nítidos de paredes/janela/pedra (arestas reais, sem triangulação). Blocos QUADRADOS de eletro (12 faces) NÃO entram; fica objeto com forma real; em cima da pedra só cuba/cooktop (até 300 mm).
+- Textura = CHAPA 1830 × 2750 mm (veio nos 2750); cada peça usa o pedaço proporcional. Texturas 1024 px.
 - TEXTURA REAL (veio da madeira) no 3D: 3D vira imagem 170 dpi com a textura do material em cada face; texturas em `texturas/` (512 px). Precisa Pillow + numpy no PC (sem eles, cor lisa).
 
 - Mesma parede com módulos de profundidades diferentes (planos até 600 mm) = uma vista só.
