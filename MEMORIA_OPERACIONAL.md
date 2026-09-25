@@ -9,11 +9,11 @@
 | Item | Situação |
 |---|---|
 | Motor no PC | **v13** em `C:\CLAUDE\motor v13` (aprovada e instalada; Pillow + numpy OK). `motor v10` = reserva. |
-| Motor na nuvem | **v21** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v21`). **Aguarda aprovação** para ir ao PC (v14–v20 não foram instaladas). |
-| Versões guardadas | Ramos `v9` … `v21` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
+| Motor na nuvem | **v22** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v22`). **Aguarda aprovação** para ir ao PC (v14–v21 não foram instaladas). |
+| Versões guardadas | Ramos `v9` … `v22` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
 | Ver cadernos sem baixar | Página privada: https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (5 abas, Suíte Casal primeiro; republicar no mesmo link com `ferramentas/visualizador.py`). |
-| Projetos de teste | Caroline Cozinha (8 pr., 38/38) · Felipe Cozinha (8 pr., 30/30) · Rafael Cozinha 2 (10 pr., 41/41) · Rafael Escritório (6 pr., 7/7, agora com o DXF) · Rafael Suíte Casal (10 pr., 12/12) · Rafael Sala e Varanda (11 pr., 16/18) · Rafael Área de Serviço (6 pr., 10/10) · Priscila Suíte Casal – DESAFIO (16 pr. na v20, 61/63; PDF do João = referência das regras especiais; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\SUITE CASAL`). Todos em `exemplos/` no repositório, com o XML+DXF MAIS ATUAL do PC (conferido por hash em 25/09). |
-| Próximo | João conferir a v16 na página e aprovar → instalar `C:\CLAUDE\motor v21`. |
+| Projetos de teste | Caroline Cozinha (8 pr., 38/38) · Felipe Cozinha (8 pr., 30/30) · Rafael Cozinha 2 (10 pr., 41/41) · Rafael Escritório (6 pr., 7/7, agora com o DXF) · Rafael Suíte Casal (10 pr., 12/12) · Rafael Sala e Varanda (11 pr., 16/18) · Rafael Área de Serviço (6 pr., 10/10) · Priscila Suíte Casal – DESAFIO (18 pr. na v22, 61/63; PDF do João = referência das regras especiais; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\SUITE CASAL`). Todos em `exemplos/` no repositório, com o XML+DXF MAIS ATUAL do PC (conferido por hash em 25/09). |
+| Próximo | João conferir a v16 na página e aprovar → instalar `C:\CLAUDE\motor v22`. |
 | Referência | Cadernos feitos À MÃO pelo João (modelo das imagens): Suíte Casal, Caroline, Felipe, Cozinha 2 (Área de Serviço), Escritório — comparar sempre as imagens do motor com eles. |
 
 ---
@@ -24,7 +24,7 @@
 2. **Todo o trabalho é na nuvem**, no repositório do motor. Gerar e conferir lá.
 3. **Nada vai para o PC sem o João aprovar.** Instalação = `git clone --depth 1 -b vN` em `C:\CLAUDE\motor vN` (a anterior fica de reserva) + conferir Pillow/numpy.
 4. **Toda correção é REGRA do motor**, nunca ajuste só para um projeto. **O motor é REGRAS + CONDIÇÕES**: o que está certo NÃO se apaga; cada situação nova (projeto novo) vira uma CONDIÇÃO nova que só atua quando aparece. Sempre regerar todos os projetos e conferir que os que não têm a situação não mudaram.
-5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v22**.
+5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v23**.
 6. **A cada versão, regerar os 8 projetos de teste (a Priscila testa as regras especiais)** + o novo, e republicar a página de visualização.
 7. **Memória fica SÓ na nuvem** (repositório `Compiere`: este arquivo + PDF). Nunca gravar memória no PC.
 8. Cadernos para o João ver: sempre pela página (o visualizador de PDF do app falha).
@@ -80,6 +80,8 @@
 - **DIVISOR DE GAVETA** (joias/talheres: 4+ peças ≤ 18 mm, altura ≤ 100, até 450 mm, nos dois sentidos, encostadas): sai da listagem da parede e ganha **prancha própria "DIVISOR DE GAVETA"**: tabela + **3D SÓ das peças do divisor (isolado) com balões** + **vista de cima** com cotas (escala até 1:2). Nunca 3D da gaveta inteira (não mostra o divisor). com as cotas de todos os vãos e a altura das peças.
 - **GAVETA / MÓDULO MONTADO COM PAINÉIS** (não é módulo do Promob: fundo horizontal ≥ 0,1 m² acima de 300 mm + 3+ peças em pé do mesmo material, até 140 mm acima do fundo; ex.: gaveta da penteadeira): sai da listagem da parede → **prancha própria "GAVETA MONTADA COM PAINÉIS"** (tabela + 3D isolado com balões + vista de cima com cotas). Deixa a vista frontal da parede limpa.
 - **CONDIÇÃO "LISTAGEM POLUÍDA"** (parede com 12+ peças numeradas; não vale para a divisória): imagem grande só com os painéis/móveis principais. **Módulo pequeno fechado e SOLTO** (até 1 m × 0,7 m, com porta/gaveta, sem módulo encostado; ex.: mesa de cabeceira suspensa) + tampo → **detalhe embaixo da tabela** com o nome do módulo (um por tipo), balões só lá. **Peça escondida atrás de painel** (afastadores atrás da cabeceira) → **detalhe das costas**. O relatório avisa quando dispara. (Disparou em: Priscila Vista C, Sala Vista A, Caroline Vista A.)
+- **CONDIÇÃO "PERNA DO L"** (planta do João: TODO trecho com móvel tem VISTA): peças de uma parede que vão > 300 mm além da frente dos módulos, num trecho de 600 mm+ (ex.: penteadeira em L) → vista própria, olhada pelo lado de dentro do L, logo DEPOIS da vista da parede dela (b → c).
+- **CONDIÇÃO "RODAPÉ / BASE ESCONDIDA"**: 3+ peças até 150 mm do piso, com uma no sentido da profundidade (quadro de base embaixo do móvel) → **detalhe "RODAPÉ / BASE"** embaixo da tabela (3D de cima em diagonal), balões só lá.
 - Ainda não feito (ver pendentes): sequência de montagem passo a passo (1º base, 2º laterais… como nas pranchas 12–15 do João) e avisos em amarelo ao montador.
 
 ### Planta (prancha 03)
@@ -129,8 +131,8 @@
 
 ## 7. PENDENTE / PRÓXIMO
 
-1. João conferir a **v21** na página (Suíte Casal + 4 projetos) e dizer o que ainda está errado nas imagens → v16.
-2. Aprovada → instalar em `C:\CLAUDE\motor v21` (a v13 fica de reserva).
+1. João conferir a **v22** na página (Suíte Casal + 4 projetos) e dizer o que ainda está errado nas imagens → v16.
+2. Aprovada → instalar em `C:\CLAUDE\motor v22` (a v13 fica de reserva).
 3. Comparar de novo com os cadernos feitos à mão: ângulo de câmera (altura do olho ~1,6 m, perspectiva mais aberta), janela/tomadas/portas do ambiente (só se vierem no DXF), ordem das vistas (João começou pelo armário maior).
 4. Cotas da planta (prancha 03) ainda amontoadas.
 5. Janela só aparece quando o DXF traz o vão.
