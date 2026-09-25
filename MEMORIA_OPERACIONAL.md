@@ -8,7 +8,7 @@
 
 | Item | Situação |
 |---|---|
-| Motor no PC | **v23** em `C:\CLAUDE\motor v23` (com a pasta MATERIAIS dentro). `motor v13` = reserva. |
+| Motor no PC | **v23** em `C:\CLAUDE\motor v23` (usa `C:\CLAUDE\MATERIAIS` direto). `motor v13` = reserva. |
 | Motor na nuvem | **v23** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v23`). Instalada no PC em 25/09 a pedido do João. |
 | Versões guardadas | Ramos `v9` … `v23` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
 | Ver cadernos sem baixar | Página privada: https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (5 abas, Suíte Casal primeiro; republicar no mesmo link com `ferramentas/visualizador.py`). |
@@ -96,8 +96,8 @@
 ## 4. FONTE DE DADOS (exportação do Promob)
 
 - **PROIBIDO pegar qualquer imagem ou conteúdo dos PDFs/cadernos executivos do João para gerar o caderno. O motor gera TUDO sozinho (XML + DXF). Nunca mexer nos cadernos executivos dele.** Os PDFs dele servem só para ler ideias de regra.
-- **Materiais**: o motor procura sozinho na pasta `MATERIAIS` DENTRO dele (`C:\CLAUDE\motor vN\MATERIAIS`, cópia REDUZIDA de `C:\CLAUDE\MATERIAIS` (3,1 GB → texturas em 512 px, mesmos nomes); fora do Git), depois no config, por último `C:\CLAUDE\MATERIAIS`.
-- **Acervo do Promob** (`C:\Program Files\Promob\Promob Plus\System\bibliotecas`, ~4 GB, 158 mil arquivos; .PMOB/.MOB3D/.entity = formato binário do Promob, não usável): reduzido em `C:\CLAUDE\motor vN\BIBLIOTECA_PROMOB` = imagens em 256 px + modelos .obj/.mtl (forma 3D real; 64 de puxadores) + `indice.json` (biblioteca, nome, tipo, caminho, puxador/ferragem). Ferramenta: `ferramentas/reduzir_acervo.py materiais|promob` (roda no PC; pode rodar de novo). Uso futuro: puxador/ferragem diferente → procurar no índice.
+- **Materiais**: o motor procura sozinho: 1º `C:\CLAUDE\motor vN\MATERIAIS` (se existir), 2º `C:\CLAUDE\MATERIAIS` (original). **Hoje usa direto a original `C:\CLAUDE\MATERIAIS`** — não copiar para dentro do motor (João, 25/09). Cores vêm de `materiais_cores.json` (não dependem da pasta); a pasta só dá a textura com veio.
+- **Redução de acervos ADIADA (João: "depois a gente pensa")**: ferramenta pronta `ferramentas/reduzir_acervo.py materiais|promob` (MATERIAIS 3,1 GB → texturas 512 px; bibliotecas do Promob ~4 GB, 158 mil arquivos → imagens 256 px + 400 .obj (64 de puxadores) + `indice.json`; .PMOB/.MOB3D/.entity são binários do Promob, não usáveis). Não rodar sem o João pedir.
 - **Puxadores NÃO vêm no DXF** (conferido em 25/09: só faces/malhas das peças; as plaquinhas 13×26 atrás das portas são dobradiças). Regra que gerava o puxador pelo lado oposto às dobradiças ficou DESLIGADA (João: posições erradas).
 
 - **Tudo sai do XML + DXF pelo motor.** Os PDFs feitos à mão pelo João são só REFERÊNCIA visual para comparar; nada (cor, medida, imagem) é tirado deles.
