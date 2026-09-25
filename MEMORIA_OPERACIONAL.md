@@ -10,7 +10,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 - Não perguntar o que já tem regra. Cruzar dados sozinho. Trazer resultado pronto.
 - Sede: `C:\CLAUDE`. Drive: só leitura. PC: Desktop Commander, device JOAO-FELIPE.
 - **Memória fica SÓ no Claude**, no repositório da nuvem (`Compiere/MEMORIA_OPERACIONAL.md` + PDF). **Nunca gravar memória no PC.** O PC serve só para o motor e para operações.
-- **VERSÕES (regra do João):** cada rodada de correções = NOVA VERSÃO (VERSAO.txt + ramo `vN` no GitHub; tags são bloqueadas pela conexão, por isso ramos). Nunca deixar versão para trás: ramos `v9`, `v10`, `v11` guardados. **Atual: v13 na nuvem (aguardando aprovação); v10 no PC.** Próxima rodada = v14. Ramos guardados: v9…v13.
+- **VERSÕES (regra do João):** cada rodada de correções = NOVA VERSÃO (VERSAO.txt + ramo `vN` no GitHub; tags são bloqueadas pela conexão, por isso ramos). Nunca deixar versão para trás: ramos `v9`, `v10`, `v11` guardados. **Atual: v13 APROVADA e instalada no PC (`C:\CLAUDE\motor v13`, Pillow 12.3 + numpy 2.5 OK); v10 no PC como reserva.** Próxima rodada = v14. Ramos guardados: v9…v13.
 - Versão do motor = nome da pasta. **PC: `C:\CLAUDE\motor v10`** = clone git do repositório `motor-cadernos-compiere` (o PC tem acesso ao GitHub). Atualizar o PC = `git pull` nessa pasta (1 comando, nenhum arquivo passa pelo Claude). Nova versão grande → novo clone em `motor vN` + caminhos do `padrao.json`. `motor v9` ficou como reserva.
 
 ## REGRAS FIXAS DO CADERNO (definitivas: não mudar, não perguntar)
@@ -68,7 +68,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 
 ## MOTOR NA NUVEM (desde 25/09/2026)
 
-- Repositório GitHub: `jfsantosdesigner-netizen/motor-cadernos-compiere` (ramo `main`). v13 no GitHub (ramo `main` = ramo `v13`); PC em `C:\CLAUDE\motor v10`. Ao aprovar: clonar o ramo aprovado em `C:\CLAUDE\motor vN` (a anterior fica como reserva) + conferir Pillow/numpy.
+- Repositório GitHub: `jfsantosdesigner-netizen/motor-cadernos-compiere` (ramo `main`). v13 no GitHub (ramo `main` = ramo `v13`) e no PC em `C:\CLAUDE\motor v13` (clone do ramo v13). Ao aprovar: clonar o ramo aprovado em `C:\CLAUDE\motor vN` (a anterior fica como reserva) + conferir Pillow/numpy.
 - Visualizar sem baixar: página privada https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (gerada por `ferramentas/visualizador.py`, republicar no mesmo link).
 - Trabalho: trazer do PC só XML montado + DXF (zip em base64, 1 comando), gerar e corrigir na nuvem. Exemplos em `exemplos/ESCRITORIO` e `exemplos/COZINHA2`.
 - v10: só MDF no 3D/2D; 3D ordenado por peça; cor de peças de mesma medida pela ordem XML×DXF (DXF = XML invertido); cotas internas; prancha 03 completa; uma vista por parede.
@@ -77,7 +77,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 ## PENDENTE / PRÓXIMO
 
 0. João vai atualizar XML + DXF da `COZINHA 2` (com pedra, eletros, janela) → trazer e regerar; cotas devem mostrar janela/pedra/eletros como referência (ver prancha 05 do caderno aprovado). João conferir Cozinha 2 e Escritório na v10. Pontos vistos: cotas da planta (prancha 03) amontoadas; Painel Freijó 719x18x364 não está no DXF.
-1. João APROVAR na página de visualização; só depois atualizar o PC (`git pull` em `C:\CLAUDE\motor v10` + `pip install pillow numpy` se faltar). NÃO mexer no PC sem aprovação.
+1. João testar a v13 no PC (arrastar a pasta do ambiente no `GERAR_CADERNO.bat` de `C:\CLAUDE\motor v13`). Próximas versões: só ir ao PC depois de aprovar (`git pull` em `C:\CLAUDE\motor v10` + `pip install pillow numpy` se faltar). NÃO mexer no PC sem aprovação.
 2. Cotas da planta (prancha 03) amontoadas.
 3. Janela ainda não vem no DXF.
 3. Testar em um 3º projeto novo (cliente novo) para validar que o motor generaliza.
