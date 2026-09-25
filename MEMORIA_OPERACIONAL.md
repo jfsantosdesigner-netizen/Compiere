@@ -9,11 +9,11 @@
 | Item | Situação |
 |---|---|
 | Motor no PC | **v13** em `C:\CLAUDE\motor v13` (aprovada e instalada; Pillow + numpy OK). `motor v10` = reserva. |
-| Motor na nuvem | **v18** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v18`). **Aguarda aprovação** para ir ao PC (v14–v17 não foram instaladas). |
-| Versões guardadas | Ramos `v9` … `v18` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
+| Motor na nuvem | **v19** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v19`). **Aguarda aprovação** para ir ao PC (v14–v18 não foram instaladas). |
+| Versões guardadas | Ramos `v9` … `v19` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
 | Ver cadernos sem baixar | Página privada: https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (5 abas, Suíte Casal primeiro; republicar no mesmo link com `ferramentas/visualizador.py`). |
-| Projetos de teste | Caroline Cozinha (8 pr., 38/38) · Felipe Cozinha (8 pr., 30/30) · Rafael Cozinha 2 (10 pr., 41/41) · Rafael Escritório (6 pr., 7/7, agora com o DXF) · Rafael Suíte Casal (10 pr., 12/12) · Rafael Sala e Varanda (11 pr., 16/18) · Rafael Área de Serviço (6 pr., 10/10) · Priscila Suíte Casal – DESAFIO (14 pr. na v18, 61/63; PDF do João = referência das regras especiais; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\SUITE CASAL`). Todos em `exemplos/` no repositório, com o XML+DXF MAIS ATUAL do PC (conferido por hash em 25/09). |
-| Próximo | João conferir a v16 na página e aprovar → instalar `C:\CLAUDE\motor v18`. |
+| Projetos de teste | Caroline Cozinha (8 pr., 38/38) · Felipe Cozinha (8 pr., 30/30) · Rafael Cozinha 2 (10 pr., 41/41) · Rafael Escritório (6 pr., 7/7, agora com o DXF) · Rafael Suíte Casal (10 pr., 12/12) · Rafael Sala e Varanda (11 pr., 16/18) · Rafael Área de Serviço (6 pr., 10/10) · Priscila Suíte Casal – DESAFIO (15 pr. na v19, 61/63; PDF do João = referência das regras especiais; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\SUITE CASAL`). Todos em `exemplos/` no repositório, com o XML+DXF MAIS ATUAL do PC (conferido por hash em 25/09). |
+| Próximo | João conferir a v16 na página e aprovar → instalar `C:\CLAUDE\motor v19`. |
 | Referência | Cadernos feitos À MÃO pelo João (modelo das imagens): Suíte Casal, Caroline, Felipe, Cozinha 2 (Área de Serviço), Escritório — comparar sempre as imagens do motor com eles. |
 
 ---
@@ -24,7 +24,7 @@
 2. **Todo o trabalho é na nuvem**, no repositório do motor. Gerar e conferir lá.
 3. **Nada vai para o PC sem o João aprovar.** Instalação = `git clone --depth 1 -b vN` em `C:\CLAUDE\motor vN` (a anterior fica de reserva) + conferir Pillow/numpy.
 4. **Toda correção é REGRA do motor**, nunca ajuste só para um projeto.
-5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v19**.
+5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v20**.
 6. **A cada versão, regerar os 8 projetos de teste (a Priscila testa as regras especiais)** + o novo, e republicar a página de visualização.
 7. **Memória fica SÓ na nuvem** (repositório `Compiere`: este arquivo + PDF). Nunca gravar memória no PC.
 8. Cadernos para o João ver: sempre pela página (o visualizador de PDF do app falha).
@@ -76,8 +76,8 @@
 - Cadeias de altura por fora das paredes; móvel a mais de 600 mm da parede lateral → cadeia encostada no móvel.
 
 ### Regras especiais (só atuam quando o projeto tem esse móvel) — v18, do PDF da Priscila
-- **DIVISÓRIA RIPADA** (6+ ripas ≤ 30 × 60–200 mm, ≥ 500 de comprimento, na mesma faixa de profundidade; ex.: ripado com painel de TV no meio do quarto): sai das paredes e vira **bloco próprio** no fim ("MÓDULOS E PAINÉIS – DIVISÓRIA RIPADA" + "MEDIDAS E ALTURAS – DIVISÓRIA RIPADA"). Junta bases, travessas, painel de TV e fechamento na parede. Vista pelo lado do painel; sem parede de fundo inventada; **um balão por tipo de peça**. Cota: largura total + laterais, **uma ripa e um vão de amostra**, altura total e alturas das partes (nunca ripa por ripa).
-- **DIVISOR DE GAVETA** (joias/talheres: 4+ peças ≤ 18 mm, altura ≤ 100, até 450 mm, nos dois sentidos, encostadas): sai da listagem da parede e ganha **prancha própria "DIVISOR DE GAVETA"**: tabela + 3D + **vista de cima** (escala até 1:2) com as cotas de todos os vãos e a altura das peças.
+- **DIVISÓRIA RIPADA** (6+ ripas ≤ 30 × 60–200 mm, ≥ 500 de comprimento, na mesma faixa de profundidade; ex.: ripado com painel de TV no meio do quarto): sai das paredes e vira **bloco próprio** no fim ("MÓDULOS E PAINÉIS – DIVISÓRIA RIPADA" + "MEDIDAS E ALTURAS – DIVISÓRIA RIPADA"). Junta bases, travessas, painel de TV e fechamento na parede. **Listagem: móvel SOZINHO (sem o ambiente), em DUAS pranchas com imagem na DIAGONAL (uma de cada lado do L)**, tabela completa nas duas, **um balão por tipo de peça**. **Cota: TODOS os vãos entre as ripas** (em cada faixa: embaixo, meio, em cima do painel; setas por dentro — o montador precisa da distância entre ripas), largura e altura totais, alturas das partes.
+- **DIVISOR DE GAVETA** (joias/talheres: 4+ peças ≤ 18 mm, altura ≤ 100, até 450 mm, nos dois sentidos, encostadas): sai da listagem da parede e ganha **prancha própria "DIVISOR DE GAVETA"**: tabela + **só a vista de cima** (sem 3D da gaveta — não mostrava o divisor; escala até 1:2) com as cotas de todos os vãos e a altura das peças.
 - Ainda não feito (ver pendentes): sequência de montagem passo a passo (1º base, 2º laterais… como nas pranchas 12–15 do João) e avisos em amarelo ao montador.
 
 ### Planta (prancha 03)
@@ -118,6 +118,7 @@
 - Blocos quadrados de eletro na imagem → poluem; fora.
 - Cota recortada rente ao móvel (paredes somem) e cota pequena no meio da prancha (limite de 75%) → **reprovado** (v15 abre parede a parede e preenche).
 - Imagem 3D pequena com margem branca em volta → **reprovado** (v15 preenche o quadro).
+- Móvel complexo (ripado) listado no meio do ambiente, de frente → **reprovado** (confuso; faltavam peças). Cota de ripado só com amostra de um vão → **reprovado** (cotar todos os vãos).
 - Perder a vista lateral do móvel ao tirar uma parede falsa (v15) → **reprovado**: a lateral agora é da regra das cotas (v16).
 - Memória no PC, mexer no PC sem aprovação, versões sem número novo.
 - **VETADO**: puxar medida de peça com setinha/chamada no desenho (jeito antigo dos PDFs à mão do João). Medida de peça é SEMPRE pela LISTAGEM (tabela + balões numerados), do jeito que o motor já faz. Ao copiar ideias dos PDFs do João, ignorar as setinhas de medida.
@@ -126,8 +127,8 @@
 
 ## 7. PENDENTE / PRÓXIMO
 
-1. João conferir a **v18** na página (Suíte Casal + 4 projetos) e dizer o que ainda está errado nas imagens → v16.
-2. Aprovada → instalar em `C:\CLAUDE\motor v18` (a v13 fica de reserva).
+1. João conferir a **v19** na página (Suíte Casal + 4 projetos) e dizer o que ainda está errado nas imagens → v16.
+2. Aprovada → instalar em `C:\CLAUDE\motor v19` (a v13 fica de reserva).
 3. Comparar de novo com os cadernos feitos à mão: ângulo de câmera (altura do olho ~1,6 m, perspectiva mais aberta), janela/tomadas/portas do ambiente (só se vierem no DXF), ordem das vistas (João começou pelo armário maior).
 4. Cotas da planta (prancha 03) ainda amontoadas.
 5. Janela só aparece quando o DXF traz o vão.
