@@ -9,11 +9,11 @@
 | Item | Situação |
 |---|---|
 | Motor no PC | **v13** em `C:\CLAUDE\motor v13` (aprovada e instalada; Pillow + numpy OK). `motor v10` = reserva. |
-| Motor na nuvem | **v16** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v16`). **Aguarda aprovação** para ir ao PC (v14/v15 não foram instaladas). |
-| Versões guardadas | Ramos `v9` … `v16` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
+| Motor na nuvem | **v17** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v17`). **Aguarda aprovação** para ir ao PC (v14–v16 não foram instaladas). |
+| Versões guardadas | Ramos `v9` … `v17` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
 | Ver cadernos sem baixar | Página privada: https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (5 abas, Suíte Casal primeiro; republicar no mesmo link com `ferramentas/visualizador.py`). |
 | Projetos de teste | Caroline Cozinha (8 pr., 38/38) · Felipe Cozinha (8 pr., 30/30) · Rafael Cozinha 2 (10 pr., 41/41) · Rafael Escritório (6 pr., 7/7, agora com o DXF) · Rafael Suíte Casal (10 pr., 12/12) · Rafael Sala e Varanda (11 pr., 16/18) · Rafael Área de Serviço (6 pr., 10/10). Todos em `exemplos/` no repositório, com o XML+DXF MAIS ATUAL do PC (conferido por hash em 25/09). |
-| Próximo | João conferir a v16 na página e aprovar → instalar `C:\CLAUDE\motor v16`. |
+| Próximo | João conferir a v16 na página e aprovar → instalar `C:\CLAUDE\motor v17`. |
 | Referência | Cadernos feitos À MÃO pelo João (modelo das imagens): Suíte Casal, Caroline, Felipe, Cozinha 2 (Área de Serviço), Escritório — comparar sempre as imagens do motor com eles. |
 
 ---
@@ -24,7 +24,7 @@
 2. **Todo o trabalho é na nuvem**, no repositório do motor. Gerar e conferir lá.
 3. **Nada vai para o PC sem o João aprovar.** Instalação = `git clone --depth 1 -b vN` em `C:\CLAUDE\motor vN` (a anterior fica de reserva) + conferir Pillow/numpy.
 4. **Toda correção é REGRA do motor**, nunca ajuste só para um projeto.
-5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v17**.
+5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v18**.
 6. **A cada versão, regerar os 7 projetos de teste** + o novo, e republicar a página de visualização.
 7. **Memória fica SÓ na nuvem** (repositório `Compiere`: este arquivo + PDF). Nunca gravar memória no PC.
 8. Cadernos para o João ver: sempre pela página (o visualizador de PDF do app falha).
@@ -72,6 +72,7 @@
 - **A cota NÃO elimina as paredes**: a elevação abre parede a parede (face interna da parede lateral + espessura, até 4 m do móvel; sem parede = 300 mm) e do piso ao TETO (pé-direito do DXF). Parede toda na frente do fundo dos móveis não entra.
 - **O desenho preenche a prancha**: maior escala que cabe (1:10, 1:12,5, 1:15, 1:20, 1:25…), mesma escala nas colunas. Móvel pequeno NÃO fica pequeno.
 - **Parede sozinha na prancha de cotas → prancha DIVIDIDA: cota FRONTAL à esquerda + VISTA LATERAL do móvel à direita**, mesma escala (profundidade a partir da parede + alturas). NUNCA gerar prancha separada só da lateral. Duas paredes do L continuam lado a lado na mesma prancha.
+- **Cotas 2D com as MESMAS cores e texturas do 3D** (madeirado com veio, mármore; chapa 1830 × 2750, veio no comprimento). Cotas em vetor por cima.
 - Cadeias de altura por fora das paredes; móvel a mais de 600 mm da parede lateral → cadeia encostada no móvel.
 
 ### Planta (prancha 03)
@@ -119,10 +120,11 @@
 
 ## 7. PENDENTE / PRÓXIMO
 
-1. João conferir a **v16** na página (Suíte Casal + 4 projetos) e dizer o que ainda está errado nas imagens → v16.
-2. Aprovada → instalar em `C:\CLAUDE\motor v16` (a v13 fica de reserva).
+1. João conferir a **v17** na página (Suíte Casal + 4 projetos) e dizer o que ainda está errado nas imagens → v16.
+2. Aprovada → instalar em `C:\CLAUDE\motor v17` (a v13 fica de reserva).
 3. Comparar de novo com os cadernos feitos à mão: ângulo de câmera (altura do olho ~1,6 m, perspectiva mais aberta), janela/tomadas/portas do ambiente (só se vierem no DXF), ordem das vistas (João começou pelo armário maior).
 4. Cotas da planta (prancha 03) ainda amontoadas.
 5. Janela só aparece quando o DXF traz o vão.
 6. Sala e Varanda: 2 itens não achados no DXF (Fechamento 70x724x300, Cunha 45° 2700x25x70); vistas C e D com uma peça só (conferir com o João).
-7. Onde estão os projetos no PC: `C:\CLAUDE\PROJETO RAFAEL CLARET\<AMBIENTE>` e `C:\CLAUDE\CLIENTES\02_ORIGIN\<CLIENTE>`.
+7. **AGUARDANDO CONFIRMAÇÃO DO JOÃO (não aplicar antes):** armário em L = uma prancha de cotas dividida AO MEIO, uma parede em cada metade; em cada metade a parte do canto que vai para a outra parede aparece DE LADO (lateral do armário, fechada, cor real) e entra na cadeia de baixo com a largura (ex.: 550 | 520 | 580 e 580 | 620). Referência: PDF do João “Dormitório Casal – Felipe Machado”, prancha 05. Falta o XML+DXF desse projeto (não achado no PC).
+8. Onde estão os projetos no PC: `C:\CLAUDE\PROJETO RAFAEL CLARET\<AMBIENTE>` e `C:\CLAUDE\CLIENTES\02_ORIGIN\<CLIENTE>`.
