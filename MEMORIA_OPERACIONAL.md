@@ -115,6 +115,7 @@
 - Imagem 3D pequena com margem branca em volta → **reprovado** (v15 preenche o quadro).
 - Perder a vista lateral do móvel ao tirar uma parede falsa (v15) → **reprovado**: a lateral agora é da regra das cotas (v16).
 - Memória no PC, mexer no PC sem aprovação, versões sem número novo.
+- **VETADO**: puxar medida de peça com setinha/chamada no desenho (jeito antigo dos PDFs à mão do João). Medida de peça é SEMPRE pela LISTAGEM (tabela + balões numerados), do jeito que o motor já faz. Ao copiar ideias dos PDFs do João, ignorar as setinhas de medida.
 
 ---
 
