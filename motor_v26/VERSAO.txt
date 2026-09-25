@@ -1,0 +1,137 @@
+MOTOR DE CADERNOS COMPIERE - v26 (25/09/2026)
+
+REGRA: cada rodada de correções = nova versão (VERSAO.txt + ramo vN no GitHub). Versões antigas ficam guardadas nos ramos v9, v10, v11...
+No PC: pasta C:\CLAUDE\motor vN = versão instalada.
+
+v26 (25/09/2026) - nuvem, aguardando teste do João (9 projetos regerados; os 8 antigos iguais à v25)
+ Projeto novo: PRISCILA COZINHA (exemplos/PRISCILA_COZINHA), comparado com o caderno feito à mão (só ideias)
+ - CONDIÇÃO "PAREDE CORTADA POR PILAR / VÃO": móveis da mesma parede dos dois lados de uma parede real que atravessa a
+   faixa dos móveis (pilar, verga de vão de passagem) = duas vistas (cada lado com listagem e cotas próprias)
+ - CONDIÇÃO "CONJUNTO DE PAINÉIS SEM MÓDULO": paredes só com painéis que se encostam (painel com nichos na ponta da parede,
+   painel do teto, agastadores) = BLOCO PRÓPRIO no fim ("PAINEL COM NICHOS"): 3D frontal + 3D lateral reta (móvel sozinho),
+   cota frontal (vãos usinados, alturas do piso) + lateral (profundidade do painel do teto)
+ - CONDIÇÃO "PAINEL USINADO": painel em pé na frente de estrutura de nichos aberta = painel com os vãos alinhados aos nichos
+ - DIVISOR DE GAVETA: vale também para divisor de TALHER de cozinha (peças até 750 mm, conjunto até 800 x 800, peças deitadas)
+ - MÓDULO BAIXO / GIRADO (adega 150 x 870 x 600): laterais de 100-150 mm e módulo girado no Promob agora são achados
+ - Porta avulsa do XML (ID POR_...) = porta: não entra na listagem (como as outras portas)
+ - Peça do DXF duplicada no lugar de uma peça listada (fora do XML) não é desenhada
+ - Detalhe de NICHO não leva painel alto (tamponamento até o teto) encostado
+ - Barrote/Cunha NÃO faz parte (João): lista só material
+
+v25 (25/09/2026) - PC: C:\CLAUDE\motor v25 (v24 fica de reserva)
+ - DIVISÓRIA RIPADA, prancha da LATERAL: a tabela e os balões trazem SÓ as peças que APARECEM nessa imagem
+   (buffer de visibilidade: peça com 15%+ da área à vista), com numeração própria da prancha
+
+v24 (25/09/2026) - PC: C:\CLAUDE\motor v24 (v23 fica de reserva)
+ - DIVISÓRIA RIPADA: 2ª imagem da listagem = LATERAL RETA (90°) pelo lado da perna do L (mostra as ripas do L), não diagonal
+
+v23 (25/09/2026) - vai para o PC (C:\CLAUDE\motor v23), aprovada pelo João
+ - PLANTA (regra geral, todos os projetos): UMA cota por parede = COMPRIMENTO TOTAL dos móveis (planta limpa)
+ - MATERIAIS: o motor procura cores/texturas SOZINHO na pasta MATERIAIS dentro dele (C:\CLAUDE\motor vN\MATERIAIS);
+   depois no config; por último C:\CLAUDE\MATERIAIS
+ - PUXADORES: o DXF do Promob não traz o puxador (só dobradiças). Regra que gerava puxador pela dobradiça ficou
+   DESLIGADA (posições erradas, João); liga só com "puxadores_regra": true no config
+ - PROIBIDO usar imagem/conteúdo dos PDFs do João no caderno: tudo sai do XML + DXF pelo motor
+
+v22 (25/09/2026) - nuvem, aguardando aprovação do João (8 projetos regerados)
+ - CONDIÇÃO "PERNA DO L" (planta do João): todo trecho com móvel tem VISTA. Peças de uma parede que vão > 300 mm além da
+   frente dos módulos, num trecho de 600 mm+ (ex.: penteadeira em L), viram vista própria, olhada pelo lado de dentro do L,
+   e vêm logo DEPOIS da vista da parede delas (letras em sequência)
+ - CONDIÇÃO "RODAPÉ / BASE ESCONDIDA": 3+ peças até 150 mm do piso com uma no sentido da profundidade (quadro de base
+   embaixo do móvel) -> DETALHE "RODAPÉ / BASE" embaixo da tabela (3D de cima em diagonal), balões só lá
+
+v21 (25/09/2026) - nuvem, aguardando aprovação do João (8 projetos regerados)
+ PRINCÍPIO (João): o motor é REGRAS + CONDIÇÕES. Nada do que está certo é apagado; cada situação nova vira uma condição nova.
+ - CONDIÇÃO "LISTAGEM POLUÍDA" (parede com 12+ peças numeradas): a imagem grande fica só com os painéis/móveis principais;
+   * MÓDULO PEQUENO FECHADO e SOLTO (até 1 m x 0,7 m, com porta/gaveta, sem outro módulo encostado; ex.: mesa de cabeceira
+     suspensa) + tampo -> DETALHE embaixo da tabela com o nome do módulo (um por tipo), balões só lá
+   * peça ESCONDIDA ATRÁS DE PAINEL (afastadores atrás da cabeceira) -> DETALHE DAS COSTAS
+   * relatório de qualidade avisa quando a condição disparou
+
+v20 (25/09/2026) - nuvem, aguardando aprovação do João (8 projetos regerados)
+ - GAVETA / MÓDULO MONTADO COM PAINÉIS (não é módulo do Promob: fundo horizontal >= 0,1 m² acima de 300 mm + 3+ peças em pé
+   do mesmo material, até 140 mm acima do fundo): sai da listagem da parede -> prancha própria "GAVETA MONTADA COM PAINÉIS"
+ - pranchas de peça (divisor e gaveta): tabela + 3D SÓ das peças (isolado) com os balões + vista de cima com as cotas
+ - divisória ripada: listagem em 3D FRONTAL (todas as ripas, como a cota) + 3D LATERAL pegando o L (lado da perna do L)
+
+v19 (25/09/2026) - nuvem, aguardando aprovação do João (8 projetos regerados)
+ - MÓVEL COMPLEXO (divisória ripada): listagem com o móvel SOZINHO (sem o ambiente), em DUAS pranchas com imagem na
+   DIAGONAL (uma de cada lado do L), tabela completa nas duas, um balão por tipo de peça
+ - COTAS da divisória: TODOS os vãos entre as ripas, em cada faixa (embaixo, meio e em cima do painel), setas por dentro
+ - DIVISOR DE GAVETA: sem o 3D da gaveta (não mostrava o divisor); só a vista de cima com as cotas
+
+v18 (25/09/2026) - nuvem, aguardando aprovação do João (8 projetos regerados). REGRAS ESPECIAIS (só atuam quando o projeto tem)
+ - DIVISÓRIA RIPADA (6+ ripas <= 30 x 60-200 mm, >= 500 de comprimento, na mesma faixa de profundidade): sai das paredes
+   e vira BLOCO PRÓPRIO no fim ("MÓDULOS E PAINÉIS - DIVISÓRIA RIPADA" + "MEDIDAS E ALTURAS - DIVISÓRIA RIPADA").
+   Junta as peças encostadas (bases, travessas, painel de TV, fechamento na parede). Vista pelo lado do painel.
+   Sem parede de fundo inventada. UM balão por tipo de peça. Cota: largura total + laterais, UMA ripa e UM vão de amostra,
+   altura total e alturas das partes; lateral só com profundidade e altura totais.
+ - DIVISOR DE GAVETA (4+ peças <= 18 mm, altura <= 100, até 450 mm, nos dois sentidos, encostadas, acima do piso):
+   sai da listagem da parede e ganha PRANCHA PRÓPRIA "DIVISOR DE GAVETA": tabela + 3D + VISTA DE CIMA (escala até 1:2)
+   com as cotas de todos os vãos e a altura das peças.
+
+v17 (25/09/2026) - nuvem, aguardando aprovação do João (7 projetos regerados)
+ - COTAS 2D (frontal e lateral) com as MESMAS cores e TEXTURAS do 3D (madeirado com veio, mármore): chapa 1830 x 2750,
+   veio no comprimento da peça. Cotas continuam em vetor por cima.
+
+v16 (25/09/2026) - nuvem, aguardando aprovação do João (7 projetos regerados)
+ - COTAS: parede sozinha na prancha -> prancha dividida: cota FRONTAL à esquerda e VISTA LATERAL do móvel à direita,
+   mesma escala (profundidade a partir da parede + alturas; parede do fundo em cinza). Não gera prancha separada da lateral.
+   Pranchas com duas paredes do L continuam lado a lado como antes.
+
+v15 (25/09/2026) - nuvem, aguardando aprovação do João (5 projetos regerados, com Suíte Casal)
+ - COTAS: elevação abre parede a parede (face interna da parede lateral + espessura, até 4 m do móvel; sem parede = 300 mm)
+   e do piso ao teto (pé-direito das paredes do DXF). Paredes NUNCA são eliminadas da cota.
+ - COTAS: desenho preenche a prancha; escala sobe até 1:10 (móvel pequeno não fica pequeno). Cadeias de altura por fora
+   das paredes; se o móvel está a mais de 600 mm da parede lateral, a cadeia fica encostada no móvel
+ - COTAS: parede que fica toda NA FRENTE do fundo dos móveis não entra (não cobre o móvel)
+ - 3D (listagem e visão geral): imagem PREENCHE o quadro (sem margem branca); móveis com folga de 300 mm, ambiente
+   completa o resto; piso cinza de referência; móvel pequeno com enquadramento mínimo 2,2 x 2,0 m
+ - peça solta (tamponamento/painel) que encosta (até 60 mm) em outra peça vai para a parede dela; nunca vira vista sozinha
+ - cores: nome do XML com letra a mais/a menos ou cortado casa com a tabela ("Metallic Sued" = "Metalic Suede")
+ - relatório: material sem cor/textura = INCERTO (antes saía APROVADO); textura nova: Metalic Suede
+
+v14 (25/09/2026) - nuvem, aguardando aprovação do João para ir ao PC (4 projetos regerados)
+ - NICHO = estrutura ABERTA, SEM PORTA (porta/basculante/gaveta), com ou sem prateleira. Armário com porta NUNCA é nicho
+   (sai a regra "nicho suspenso"). Porta detectada pela geometria: chapa fina na frente cobrindo >= 40% do módulo
+ - módulo aberto (até 2 m x 1,2 m) + tamponamentos encostados = detalhe; grupos que se encostam viram um detalhe só
+
+v13 (25/09/2026) - instalada no PC (C:\CLAUDE\motor v13)
+ - planta: paredes em peça única desenhadas pelas faces verticais (vãos de porta/janela abertos)
+ - 3D: parede real que fica NA FRENTE do fundo dos móveis não entra (não esconde móvel)
+ - 3D: sem parede real atrás de móvel ALTO (cobre < metade) -> parede de fundo de referência
+ - ilha/bancada baixa (até 1,20 m): sem parede inventada nem paredes laterais distantes
+ - rodapé/base solta no chão não conta como parede nem como eletro
+
+v12 (25/09/2026) - Caroline / Cozinha
+ - corrigido: riscos diagonais (triangulação) nas cotas 2D, no 3D e na planta; só contornos reais
+ - relatório de qualidade avisa textura faltando; texturas novas: Areia, Itapuã
+
+v11 (25/09/2026) - nuvem
+ - planta só com móveis e paredes (sem forro/sanca/pedra/eletros por cima); setas das vistas não se sobrepõem
+ - TODO nicho aberto vira DETALHE embaixo da tabela (3+ painéis/tamponamentos, 2+ horizontais, até 2 m x 1,2 m)
+ - NICHO SUSPENSO (módulo alto sem móvel embaixo, ex. armário sobre geladeira) vira DETALHE
+ - DETALHE DAS COSTAS: item escondido atrás dos módulos (ex. painel atrás da ilha) visto de trás
+ - detalhes ocupam a coluna inteira, com zoom só nas peças do detalhe
+ - balões nunca sobrepostos (desloca + traço de chamada)
+ - cotas: parede/móvel pequeno amplia até 1:20 / 1:15
+ - listagem BEM FRONTAL (câmera 3 graus)
+ - contornos nítidos de paredes, janela e pedra (arestas reais, sem triangulação)
+ - blocos quadrados de eletro não entram; fica objeto com forma real (cuba/cooktop sobre a pedra)
+ - TEXTURA REAL da madeira (veio): chapa 1830 x 2750 mm, cada peça usa o pedaço proporcional; texturas/ em 1024 px
+   (precisa Pillow + numpy no PC; sem eles sai cor lisa)
+
+v10 (25/09/2026) - instalada no PC (C:\CLAUDE\motor v10)
+ - 3D e 2D só com MDF; 3D desenhado por peça (nada atravessa portas/rodapé)
+ - cor de peças de mesma medida casada pela ordem XML x DXF
+ - cotas internas: largura livre de cada vão + altura livre entre prateleiras
+ - prancha 03 no modelo do João (cores, ferragens com nome exato do XML, espessuras)
+ - uma letra por parede; listagem frontal por parede; parede < 2,5 m com cotas lado a lado com a vizinha do L
+ - ambiente em volta (vizinhos, pedra, paredes reais do DXF) só como referência; cotas só da parede da vista
+ - pedra do DXF com formato real, sem cota; alturas a partir do piso pronto
+ - mesma parede com profundidades diferentes = uma vista; paredes em peça única no DXF
+ - CORES REAIS pela tabela materiais_cores.json (12.971 texturas), sem precisar da pasta MATERIAIS
+
+v9: pasta renomeada para 'motor v9' + caminhos (padrao.json, config_*.json) atualizados
+v8: cores reais (XML -> pasta MATERIAIS) + capa nova (logo trocavel em padrao.json)
+v7: listagem 3D frontal portas fechadas c/ paredes | cotas 2D frontal portas abertas | ferragens so na P03 | imagens limpas | escala min 1:25
