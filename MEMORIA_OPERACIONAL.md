@@ -10,7 +10,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 - Não perguntar o que já tem regra. Cruzar dados sozinho. Trazer resultado pronto.
 - Sede: `C:\CLAUDE`. Drive: só leitura. PC: Desktop Commander, device JOAO-FELIPE.
 - **Memória fica SÓ no Claude**, no repositório da nuvem (`Compiere/MEMORIA_OPERACIONAL.md` + PDF). **Nunca gravar memória no PC.** O PC serve só para o motor e para operações.
-- **VERSÕES (regra do João):** cada rodada de correções = NOVA VERSÃO (VERSAO.txt + ramo `vN` no GitHub; tags são bloqueadas pela conexão, por isso ramos). Nunca deixar versão para trás: ramos `v9`, `v10`, `v11` guardados. **Atual: v11 na nuvem (aguardando aprovação); v10 no PC.** Próxima rodada = v12.
+- **VERSÕES (regra do João):** cada rodada de correções = NOVA VERSÃO (VERSAO.txt + ramo `vN` no GitHub; tags são bloqueadas pela conexão, por isso ramos). Nunca deixar versão para trás: ramos `v9`, `v10`, `v11` guardados. **Atual: v12 na nuvem (aguardando aprovação); v10 no PC.** Próxima rodada = v13. Ramos guardados: v9, v10, v11, v12.
 - Versão do motor = nome da pasta. **PC: `C:\CLAUDE\motor v10`** = clone git do repositório `motor-cadernos-compiere` (o PC tem acesso ao GitHub). Atualizar o PC = `git pull` nessa pasta (1 comando, nenhum arquivo passa pelo Claude). Nova versão grande → novo clone em `motor vN` + caminhos do `padrao.json`. `motor v9` ficou como reserva.
 
 ## REGRAS FIXAS DO CADERNO (definitivas: não mudar, não perguntar)
@@ -43,6 +43,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 - NICHO SUSPENSO (regra geral, não pontual): módulo com base ≥ 1,40 m e < 30% da largura com móvel embaixo (ex.: armário sobre geladeira) + tamponamentos encostados = DETALHE. Nicho grande (> 2 m) fica na imagem principal. Quadros de detalhe ocupam a coluna inteira embaixo da tabela, com zoom só nas peças do detalhe. Balões NUNCA sobrepostos (desloca + traço de chamada). Tudo é REGRA do motor, nunca ajuste pontual.
 - Item escondido atrás dos módulos (ex.: painel nas costas da ilha) = DETALHE - COSTAS visto de trás.
 - Cotas: parede/móvel pequeno amplia até 1:20 ou 1:15 (ocupando até 75% do espaço).
+- Desenho vetorial: traço de arestas SEMPRE com closePath=False (senão aparecem diagonais da triangulação). Só arestas retas são contorno.
 - Listagem BEM FRONTAL (câmera 3°). Contornos nítidos de paredes/janela/pedra (arestas reais, sem triangulação). Blocos QUADRADOS de eletro (12 faces) NÃO entram; fica objeto com forma real; em cima da pedra só cuba/cooktop (até 300 mm).
 - Textura = CHAPA 1830 × 2750 mm (veio nos 2750); cada peça usa o pedaço proporcional. Texturas 1024 px.
 - TEXTURA REAL (veio da madeira) no 3D: 3D vira imagem 170 dpi com a textura do material em cada face; texturas em `texturas/` (512 px). Precisa Pillow + numpy no PC (sem eles, cor lisa).
@@ -60,12 +61,13 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 ## RESULTADOS
 
 - Escritório Rafael Claret: `C:\CLAUDE\PROJETO RAFAEL CLARET\ESCRITÓRIO\CADERNO - ESCRITÓRIO.pdf` (gerado pelo motor v7): 6 pranchas, 7/7 itens, XML confere, tudo APROVADO. Uma vista só (não existe vista B). Falta regerar na v8.
+- Cozinha Caroline (CLIENTES\\02_ORIGIN\\CAROLINE\\COZINHA): 8 pranchas, 38/38, parede linear + parede com despenseiro/península; exemplo em `exemplos/CAROLINE_COZINHA`.
 - Cozinha Felipe (CLIENTES\\02_ORIGIN\\FELIPE\\COZINHA): 8 pranchas, 30/30, parede linear + ilha; exemplo em `exemplos/FELIPE_COZINHA`.
 - Cozinha Rafael Claret: 8 pranchas, 40/41 itens (o Painel Freijó 719x18x364 não foi localizado no DXF).
 
 ## MOTOR NA NUVEM (desde 25/09/2026)
 
-- Repositório GitHub: `jfsantosdesigner-netizen/motor-cadernos-compiere` (ramo `main`). v11 no GitHub (ramo `main` = ramo `v11`); PC em `C:\CLAUDE\motor v10`. Ao aprovar: clonar ramo v11 em `C:\CLAUDE\motor v11` (v10 fica como reserva).
+- Repositório GitHub: `jfsantosdesigner-netizen/motor-cadernos-compiere` (ramo `main`). v12 no GitHub (ramo `main` = ramo `v12`); PC em `C:\CLAUDE\motor v10`. Ao aprovar: clonar o ramo aprovado em `C:\CLAUDE\motor vN` (a anterior fica como reserva) + conferir Pillow/numpy.
 - Visualizar sem baixar: página privada https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (gerada por `ferramentas/visualizador.py`, republicar no mesmo link).
 - Trabalho: trazer do PC só XML montado + DXF (zip em base64, 1 comando), gerar e corrigir na nuvem. Exemplos em `exemplos/ESCRITORIO` e `exemplos/COZINHA2`.
 - v10: só MDF no 3D/2D; 3D ordenado por peça; cor de peças de mesma medida pela ordem XML×DXF (DXF = XML invertido); cotas internas; prancha 03 completa; uma vista por parede.
