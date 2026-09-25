@@ -1,6 +1,6 @@
 # MEMÓRIA OPERACIONAL — MOTOR DE CADERNOS COMPIERE
 
-**Reescrita do zero em 25/09/2026; atualizada na v15.** Este arquivo é a ÚNICA fonte. Ignore qualquer memória ou conversa anterior. Só está aqui o que foi testado e aprovado.
+**Reescrita do zero em 25/09/2026; atualizada na v26.** Este arquivo é a ÚNICA fonte. Ignore qualquer memória ou conversa anterior. Só está aqui o que foi testado e aprovado.
 
 ---
 
@@ -9,11 +9,11 @@
 | Item | Situação |
 |---|---|
 | Motor no PC | **v25** em `C:\CLAUDE\motor v25` (usa `C:\CLAUDE\MATERIAIS` direto). `motor v24`, `v23` e `v13` = reserva. |
-| Motor na nuvem | **v25** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v25`). Instalada no PC em 25/09 (fim do dia). |
-| Versões guardadas | Ramos `v9` … `v25` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
-| Ver cadernos sem baixar | Página privada: https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (5 abas, Suíte Casal primeiro; republicar no mesmo link com `ferramentas/visualizador.py`). |
-| Projetos de teste | Caroline Cozinha (8 pr., 38/38) · Felipe Cozinha (8 pr., 30/30) · Rafael Cozinha 2 (10 pr., 41/41) · Rafael Escritório (6 pr., 7/7, agora com o DXF) · Rafael Suíte Casal (10 pr., 12/12) · Rafael Sala e Varanda (11 pr., 16/18) · Rafael Área de Serviço (6 pr., 10/10) · Priscila Suíte Casal – DESAFIO (18 pr. na v22, 61/63; PDF do João = referência das regras especiais; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\SUITE CASAL`). Todos em `exemplos/` no repositório, com o XML+DXF MAIS ATUAL do PC (conferido por hash em 25/09). |
-| Próximo | João testar a v25 no PC (arrastar a pasta no GERAR_CADERNO.bat de C:\CLAUDE\motor v25). Puxadores: descobrir como exportar do Promob. |
+| Motor na nuvem | **v26** feita na nuvem (commit `8277e60` "v26: parede cortada..."), **AINDA NÃO ENVIADA ao GitHub**: nesta sessão o acesso de ESCRITA ao repositório do motor foi negado (só leitura). No GitHub: `main` = `v25`. Próxima sessão: pedir acesso push, refazer/enviar a v26 (ramo `v26` + `main`). v25 instalada no PC. |
+| Versões guardadas | Ramos `v9` … `v25` no GitHub (v26 pendente de envio) (tags são bloqueadas pela conexão; por isso ramos). |
+| Ver cadernos sem baixar | Página privada: https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (9 abas, Priscila Cozinha primeiro, versão v26; republicar no mesmo link com `ferramentas/visualizador.py`). |
+| Projetos de teste | Caroline Cozinha (8 pr., 38/38) · Felipe Cozinha (8 pr., 30/30) · Rafael Cozinha 2 (10 pr., 41/41) · Rafael Escritório (6 pr., 7/7, agora com o DXF) · Rafael Suíte Casal (10 pr., 12/12) · Rafael Sala e Varanda (11 pr., 16/18) · Rafael Área de Serviço (6 pr., 10/10) · Priscila Suíte Casal – DESAFIO (18 pr. na v22, 61/63; PDF do João = referência das regras especiais; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\SUITE CASAL`). **Priscila Cozinha (v26, 13 pr., 51/53; PDF do João = referência; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\cozinha`)**. Todos em `exemplos/` no repositório (a Priscila Cozinha só no commit local da v26). |
+| Próximo | João conferir a Priscila Cozinha v26 na página. Enviar a v26 ao GitHub (precisa acesso push). Puxadores: descobrir como exportar do Promob. |
 | Referência | Cadernos feitos À MÃO pelo João (modelo das imagens): Suíte Casal, Caroline, Felipe, Cozinha 2 (Área de Serviço), Escritório — comparar sempre as imagens do motor com eles. |
 
 ---
@@ -24,7 +24,7 @@
 2. **Todo o trabalho é na nuvem**, no repositório do motor. Gerar e conferir lá.
 3. **Nada vai para o PC sem o João aprovar.** Instalação = `git clone --depth 1 -b vN` em `C:\CLAUDE\motor vN` (a anterior fica de reserva) + conferir Pillow/numpy.
 4. **Toda correção é REGRA do motor**, nunca ajuste só para um projeto. **O motor é REGRAS + CONDIÇÕES**: o que está certo NÃO se apaga; cada situação nova (projeto novo) vira uma CONDIÇÃO nova que só atua quando aparece. Sempre regerar todos os projetos e conferir que os que não têm a situação não mudaram.
-5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v26**.
+5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v27**.
 6. **A cada versão, regerar os 8 projetos de teste (a Priscila testa as regras especiais)** + o novo, e republicar a página de visualização.
 7. **Memória fica SÓ na nuvem** (repositório `Compiere`: este arquivo + PDF). Nunca gravar memória no PC.
 8. Cadernos para o João ver: sempre pela página (o visualizador de PDF do app falha).
@@ -82,6 +82,13 @@
 - **CONDIÇÃO "LISTAGEM POLUÍDA"** (parede com 12+ peças numeradas; não vale para a divisória): imagem grande só com os painéis/móveis principais. **Módulo pequeno fechado e SOLTO** (até 1 m × 0,7 m, com porta/gaveta, sem módulo encostado; ex.: mesa de cabeceira suspensa) + tampo → **detalhe embaixo da tabela** com o nome do módulo (um por tipo), balões só lá. **Peça escondida atrás de painel** (afastadores atrás da cabeceira) → **detalhe das costas**. O relatório avisa quando dispara. (Disparou em: Priscila Vista C, Sala Vista A, Caroline Vista A.)
 - **CONDIÇÃO "PERNA DO L"** (planta do João: TODO trecho com móvel tem VISTA): peças de uma parede que vão > 300 mm além da frente dos módulos, num trecho de 600 mm+ (ex.: penteadeira em L) → vista própria, olhada pelo lado de dentro do L, logo DEPOIS da vista da parede dela (b → c).
 - **CONDIÇÃO "RODAPÉ / BASE ESCONDIDA"**: 3+ peças até 150 mm do piso, com uma no sentido da profundidade (quadro de base embaixo do móvel) → **detalhe "RODAPÉ / BASE"** embaixo da tabela (3D de cima em diagonal), balões só lá.
+- **(v26, cozinha Priscila) CONDIÇÃO "PAREDE CORTADA POR PILAR / VÃO"**: móveis da mesma parede dos dois lados de uma parede real que atravessa a faixa dos móveis (pilar, verga de vão de passagem; cada lado com 1 m+ de módulos) = DUAS vistas (listagem e cotas próprias; escala maior). O que fica atrás do plano da vista não aparece (só nessas vistas e no bloco).
+- **(v26) CONDIÇÃO "CONJUNTO DE PAINÉIS SEM MÓDULO"**: paredes só com painéis que se encostam (painel com nichos na ponta da parede, painel do teto, agastadores) = BLOCO PRÓPRIO no fim, "PAINEL COM NICHOS" (como a divisória: 3D frontal + 3D lateral reta, móvel sozinho, um balão por tipo; cota frontal com os vãos usinados e alturas do piso + lateral com profundidade do painel do teto; elevação curta em volta, escala maior).
+- **(v26) CONDIÇÃO "PAINEL USINADO"**: painel em pé na frente de estrutura de nichos aberta (2 laterais + 3+ prateleiras até 150 mm atrás) = painel desenhado com os VÃOS alinhados aos nichos (o DXF traz o painel inteiro). Balão na faixa cheia.
+- **(v26) DIVISOR DE TALHER** (cozinha): mesma regra do divisor de gaveta, peças até 750 mm, conjunto até 800 × 800, peças deitadas (altura ≤ 100 no DXF).
+- **(v26) MÓDULO BAIXO / GIRADO** (adega 150 × 870 × 600 do Promob = 870 de largura, 150 de altura): achado (laterais de 100–150 mm só para módulo ≤ 200 mm).
+- **(v26)** Porta avulsa do XML (ID `POR_...`) = porta, não entra na listagem. Peça do DXF fora do XML duplicada no lugar de uma peça listada não é desenhada. Detalhe de NICHO não leva painel alto (até o teto) encostado.
+- **Barrote / Cunha 45° NÃO faz parte (João, v26)**: lista só material. Não tentar casar barrote.
 - Ainda não feito (ver pendentes): sequência de montagem passo a passo (1º base, 2º laterais… como nas pranchas 12–15 do João) e avisos em amarelo ao montador.
 
 ### Planta (prancha 03)
@@ -120,6 +127,11 @@
 
 ---
 
+## 4b. COMO TRAZER ARQUIVOS DO PC (testado na v26)
+
+- Um comando `python -c` no PC (cmd) que compacta em `%TEMP%` (XML+DXF em `.tar.xz`, 33 MB → 1,1 MB; PDF de referência em JPG 90 dpi) e outro que imprime o base64. A saída grande é SALVA SOZINHA num arquivo `tool-results/*.txt` na nuvem → extrair com python (regex do maior bloco base64). Depois apagar os arquivos do `%TEMP%`.
+- No PowerShell via Desktop Commander o `$` some: usar `shell: cmd`.
+
 ## 6. NÃO FAZER (testado e reprovado / substituído)
 
 - 3D na diagonal pegando duas paredes na listagem (paredes na frente dos móveis) → **reprovado**.
@@ -137,11 +149,12 @@
 
 ## 7. PENDENTE / PRÓXIMO
 
-1. João testar a **v25** no PC e conferir na página; o que estiver errado vira condição/regra nova → v24.
-2. Aprovada → instalar em `C:\CLAUDE\motor v22` (a v13 fica de reserva).
-3. Comparar de novo com os cadernos feitos à mão: ângulo de câmera (altura do olho ~1,6 m, perspectiva mais aberta), janela/tomadas/portas do ambiente (só se vierem no DXF), ordem das vistas (João começou pelo armário maior).
-4. Cotas da planta (prancha 03) ainda amontoadas.
+1. **Enviar a v26 ao GitHub** (ramo `v26` + `main`): acesso de escrita ao `motor-cadernos-compiere` foi negado nesta sessão. Sem isso, a v26 some com o container — na próxima sessão, se o commit não estiver lá, refazer pela lista da seção 3 (v26).
+2. João conferir a **Priscila Cozinha v26** na página. Comparado com o PDF dele: FEITO = ilha (painel com nichos) em bloco, divisor de talher, adega, parede da pia dividida (cozinha / lado da churrasqueira). FALTA: sequência de montagem passo a passo (pranchas 05–08 e 12–14 dele), avisos em amarelo ao montador (LED, interruptor, "cliente instala spot"), listagem dividida superiores/inferiores (pranchas 04 e 08 dele), metalon (DXF só traz uma barra) e esquema elétrico (não vem no XML/DXF).
+3. Instalar no PC só depois da aprovação (`C:\CLAUDE\motor v26`; v25 fica de reserva).
+4. Comparar de novo com os cadernos feitos à mão: ângulo de câmera (olho ~1,6 m), janela/tomadas/portas (só se vierem no DXF), ordem das vistas.
 5. Janela só aparece quando o DXF traz o vão.
-6. Sala e Varanda: 2 itens não achados no DXF (Fechamento 70x724x300, Cunha 45° 2700x25x70); vistas C e D com uma peça só (conferir com o João).
+6. Sala e Varanda: Fechamento 70x724x300 e Cunha 45° não achados no DXF (Cunha = barrote, não faz parte); vistas C e D com uma peça só (conferir com o João).
 7. **AGUARDANDO CONFIRMAÇÃO DO JOÃO (não aplicar antes):** armário em L = uma prancha de cotas dividida AO MEIO, uma parede em cada metade; em cada metade a parte do canto que vai para a outra parede aparece DE LADO (lateral do armário, fechada, cor real) e entra na cadeia de baixo com a largura (ex.: 550 | 520 | 580 e 580 | 620). Referência: PDF do João “Dormitório Casal – Felipe Machado”, prancha 05. Falta o XML+DXF desse projeto (não achado no PC).
 8. Onde estão os projetos no PC: `C:\CLAUDE\PROJETO RAFAEL CLARET\<AMBIENTE>` e `C:\CLAUDE\CLIENTES\02_ORIGIN\<CLIENTE>`.
+9. Suíte Priscila na v26: a "Frente de Gaveta Reta 406x130x18" (não achada no DXF) saiu da listagem pela regra da porta avulsa — confirmar com o João.
