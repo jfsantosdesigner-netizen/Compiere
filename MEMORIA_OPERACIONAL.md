@@ -8,7 +8,7 @@
 
 | Item | Situação |
 |---|---|
-| Motor no PC | **v25** em `C:\CLAUDE\motor v25` (usa `C:\CLAUDE\MATERIAIS` direto). `motor v24`, `v23` e `v13` = reserva. |
+| Motor no PC | **v26** em `C:\CLAUDE\motor v26` (instalada 25/09 a pedido do João, copiada de `Compiere/motor v26`; usa `C:\CLAUDE\MATERIAIS` direto). `motor v25`, `v24`, `v23`, `v13` = reserva. |
 | Motor na nuvem | **v26 COMPLETA guardada no repositório Compiere, pasta `motor v26/`** (ramo `claude/pensive-hopper-rbahkx`) — o repositório do motor recusou o envio (só leitura nesta sessão). No motor: `main` = `v25` (intacta). Próxima sessão com acesso push: criar ramo `v26` no motor a partir dessa pasta. |
 | Versões guardadas | Ramos `v9` … `v25` no GitHub (v26 pendente de envio) (tags são bloqueadas pela conexão; por isso ramos). |
 | Ver cadernos sem baixar | Página privada: https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (9 abas, Priscila Cozinha primeiro, versão v26; republicar no mesmo link com `ferramentas/visualizador.py`). |
