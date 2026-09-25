@@ -10,7 +10,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 - Não perguntar o que já tem regra. Cruzar dados sozinho. Trazer resultado pronto.
 - Sede: `C:\CLAUDE`. Drive: só leitura. PC: Desktop Commander, device JOAO-FELIPE.
 - **Memória fica SÓ no Claude**, no repositório da nuvem (`Compiere/MEMORIA_OPERACIONAL.md` + PDF). **Nunca gravar memória no PC.** O PC serve só para o motor e para operações.
-- Versão do motor = nome da pasta (**atual: `C:\CLAUDE\motor v8`**, com VERSAO.txt). Nova versão → renomear a pasta (próxima: `motor v9`) e atualizar os caminhos internos (`padrao.json`, `config_cozinha_v2.json`, `config_escritorio.json`) e o VERSAO.txt.
+- Versão do motor = nome da pasta. **PC: `C:\CLAUDE\motor v10`** = clone git do repositório `motor-cadernos-compiere` (o PC tem acesso ao GitHub). Atualizar o PC = `git pull` nessa pasta (1 comando, nenhum arquivo passa pelo Claude). Nova versão grande → novo clone em `motor vN` + caminhos do `padrao.json`. `motor v9` ficou como reserva.
 
 ## REGRAS FIXAS DO CADERNO (definitivas: não mudar, não perguntar)
 
@@ -55,7 +55,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 
 ## MOTOR NA NUVEM (desde 25/09/2026)
 
-- Repositório GitHub: `jfsantosdesigner-netizen/motor-cadernos-compiere` (ramo `main`). Versão atual lá: **v10**. PC ainda em `motor v9`.
+- Repositório GitHub: `jfsantosdesigner-netizen/motor-cadernos-compiere` (ramo `main`). Versão **v10** no GitHub e no PC (`C:\CLAUDE\motor v10`).
 - Visualizar sem baixar: página privada https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (gerada por `ferramentas/visualizador.py`, republicar no mesmo link).
 - Trabalho: trazer do PC só XML montado + DXF (zip em base64, 1 comando), gerar e corrigir na nuvem. Exemplos em `exemplos/ESCRITORIO` e `exemplos/COZINHA2`.
 - v10: só MDF no 3D/2D; 3D ordenado por peça; cor de peças de mesma medida pela ordem XML×DXF (DXF = XML invertido); cotas internas; prancha 03 completa; uma vista por parede.
@@ -64,7 +64,8 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 ## PENDENTE / PRÓXIMO
 
 0. João vai atualizar XML + DXF da `COZINHA 2` (com pedra, eletros, janela) → trazer e regerar; cotas devem mostrar janela/pedra/eletros como referência (ver prancha 05 do caderno aprovado). João conferir Cozinha 2 e Escritório na v10. Pontos vistos: cotas da planta (prancha 03) amontoadas; Painel Freijó 719x18x364 não está no DXF.
-1. Cores reais (em espera): integrar `materiais_cores.json`.
-2. Levar a v10 para o PC (`motor v10`) quando o João aprovar.
+1. João testar a v10 no PC (arrastar a pasta do ambiente no `GERAR_CADERNO.bat` de `C:\CLAUDE\motor v10`).
+2. Cotas da planta (prancha 03) amontoadas.
+3. Janela ainda não vem no DXF.
 3. Testar em um 3º projeto novo (cliente novo) para validar que o motor generaliza.
 4. Depois: cadernos Nadecor (Produção peça a peça, Instalação).
