@@ -59,7 +59,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 - Visualizar sem baixar: página privada https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (gerada por `ferramentas/visualizador.py`, republicar no mesmo link).
 - Trabalho: trazer do PC só XML montado + DXF (zip em base64, 1 comando), gerar e corrigir na nuvem. Exemplos em `exemplos/ESCRITORIO` e `exemplos/COZINHA2`.
 - v10: só MDF no 3D/2D; 3D ordenado por peça; cor de peças de mesma medida pela ordem XML×DXF (DXF = XML invertido); cotas internas; prancha 03 completa; uma vista por parede.
-- Cores reais: `C:\CLAUDE\ferramentas\gerar_cores_materiais.py` gera `%TEMP%\materiais_cores.json` no PC (cor média de 12.971 texturas). **EM ESPERA** a pedido do João. O motor da nuvem já lê essa tabela quando existir.
+- Cores reais: **FEITO**. `materiais_cores.json` (12.971 texturas, gerado no PC por `C:\CLAUDE\ferramentas\gerar_cores_materiais.py`) está no repositório; o motor não precisa da pasta MATERIAIS de 3 GB. Testado: Pecan, Freijó Puro, Mogno Imperial, Nero, Branco, Chumbo, Preto TX.
 
 ## PENDENTE / PRÓXIMO
 
