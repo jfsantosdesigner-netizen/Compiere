@@ -14,7 +14,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 
 ## REGRAS FIXAS DO CADERNO (definitivas: não mudar, não perguntar)
 
-1. Sequência: Capa → Contrato → Planta+Especificações → Visão Geral → por vista: Listagem, Cotas. **UMA VISTA POR PAREDE** (A, B, C, D…; em cada L, a parede maior primeiro e depois a perninha). Pranchas = 4 + 2 × nº de paredes.
+1. Sequência: Capa → Contrato → Planta+Especificações → Visão Geral → por vista: Listagem, Cotas. **UMA LETRA POR PAREDE** (A, B, C, D…; em cada L, a parede maior primeiro). Parede **< 2,5 m** vai junto com a vizinha do L: listagem única com 3D na diagonal + cotas das duas lado a lado (mesma escala). Parede ≥ 2,5 m = vista própria. Pranchas = 4 + 2 × nº de blocos. Nicho pequeno/apertado ganha imagem de DETALHE embaixo da tabela (continua na imagem grande).
 2. LISTAGEM: 3D FRONTAL (câmera na FRENTE dos móveis, nunca nas costas), PORTAS FECHADAS, com paredes, balões amarelos. Tabela Item | Descrição | Dimensão. Lista só módulos, tamponamentos e fechamentos. Sem cotas.
 3. COTAS: 2D FRONTAL, PORTAS ABERTAS, com paredes (só como referência). Cotar só módulos inteiros + alturas de prateleiras. Nada externo (janela, piso, eletro).
 4. ESPECIFICAÇÕES (prancha 03): cores (caixa, portas, tamponamentos) + FERRAGENS (dobradiças, corrediças, puxadores, portas de alumínio/vidros/espelhos) + espessuras. Ferragens só nessa prancha.
@@ -50,13 +50,14 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 ## MOTOR NA NUVEM (desde 25/09/2026)
 
 - Repositório GitHub: `jfsantosdesigner-netizen/motor-cadernos-compiere` (ramo `main`). Versão atual lá: **v10**. PC ainda em `motor v9`.
+- Visualizar sem baixar: página privada https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (gerada por `ferramentas/visualizador.py`, republicar no mesmo link).
 - Trabalho: trazer do PC só XML montado + DXF (zip em base64, 1 comando), gerar e corrigir na nuvem. Exemplos em `exemplos/ESCRITORIO` e `exemplos/COZINHA2`.
 - v10: só MDF no 3D/2D; 3D ordenado por peça; cor de peças de mesma medida pela ordem XML×DXF (DXF = XML invertido); cotas internas; prancha 03 completa; uma vista por parede.
 - Cores reais: `C:\CLAUDE\ferramentas\gerar_cores_materiais.py` gera `%TEMP%\materiais_cores.json` no PC (cor média de 12.971 texturas). **EM ESPERA** a pedido do João. O motor da nuvem já lê essa tabela quando existir.
 
 ## PENDENTE / PRÓXIMO
 
-0. João conferir Cozinha 2 (4 vistas) e Escritório gerados na v10. Pontos vistos: cotas da planta (prancha 03) amontoadas; Painel Freijó 719x18x364 não está no DXF.
+0. João vai atualizar XML + DXF da `COZINHA 2` (com pedra, eletros, janela) → trazer e regerar; cotas devem mostrar janela/pedra/eletros como referência (ver prancha 05 do caderno aprovado). João conferir Cozinha 2 e Escritório na v10. Pontos vistos: cotas da planta (prancha 03) amontoadas; Painel Freijó 719x18x364 não está no DXF.
 1. Cores reais (em espera): integrar `materiais_cores.json`.
 2. Levar a v10 para o PC (`motor v10`) quando o João aprovar.
 3. Testar em um 3º projeto novo (cliente novo) para validar que o motor generaliza.
