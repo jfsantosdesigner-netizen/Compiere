@@ -37,6 +37,10 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 
 ## CORREÇÕES JÁ FEITAS (não refazer)
 
+- Mesma parede com módulos de profundidades diferentes (planos até 600 mm) = uma vista só.
+- DXF com todas as paredes numa peça só: motor usa as faces reais (não a caixa).
+- Eletros/objetos do ambiente (geladeira, micro, forno...) = referência cinza, sem cota. Eletro = volume (menor medida ≥ 40 mm), não confundir com porta solta.
+
 - Listagem por quantidade do XML (peças repetidas de painel/tamponamento).
 - "Rodapé" na descrição não vira componente (`re.match` no início da descrição); módulos com rodapé são aceitos.
 - Cor da caixa buscada nos subitens (lateral/base); espessura da caixa pelas laterais (15–30 mm).
@@ -46,6 +50,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 ## RESULTADOS
 
 - Escritório Rafael Claret: `C:\CLAUDE\PROJETO RAFAEL CLARET\ESCRITÓRIO\CADERNO - ESCRITÓRIO.pdf` (gerado pelo motor v7): 6 pranchas, 7/7 itens, XML confere, tudo APROVADO. Uma vista só (não existe vista B). Falta regerar na v8.
+- Cozinha Felipe (CLIENTES\\02_ORIGIN\\FELIPE\\COZINHA): 8 pranchas, 30/30, parede linear + ilha; exemplo em `exemplos/FELIPE_COZINHA`.
 - Cozinha Rafael Claret: 8 pranchas, 40/41 itens (o Painel Freijó 719x18x364 não foi localizado no DXF).
 
 ## MOTOR NA NUVEM (desde 25/09/2026)
