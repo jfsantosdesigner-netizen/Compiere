@@ -18,9 +18,10 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 2. LISTAGEM: 3D FRONTAL (câmera na FRENTE dos móveis, nunca nas costas), PORTAS FECHADAS, com paredes, balões amarelos. Tabela Item | Descrição | Dimensão. Lista só módulos, tamponamentos e fechamentos. Sem cotas.
 3. COTAS: 2D FRONTAL, PORTAS ABERTAS, com paredes (só como referência). Cotar só módulos inteiros + alturas de prateleiras. Nada externo (janela, piso, eletro).
 4. ESPECIFICAÇÕES (prancha 03): cores (caixa, portas, tamponamentos) + FERRAGENS (dobradiças, corrediças, puxadores, portas de alumínio/vidros/espelhos) + espessuras. Ferragens só nessa prancha.
-5. Imagens limpas: peças desenhadas como caixas, só bordas, sem triangulação. **Só MDF** (sem suportes, dobradiças, cabideiros, pés). Nada atravessa portas/rodapé.
-6. Escala mínima 1:25. A4 paisagem, nada encosta no quadro.
-7. Fonte de dados: XML MONTADO + DXF exportados do Promob. Explodido = só Produção Nadecor. SketchUp/3DS não são usados.
+5. **AMBIENTE EM VOLTA**: a imagem 3D da listagem e o 2D das cotas mostram o ambiente (móveis vizinhos, pedra) para orientar; listagem, balões e cotas SÓ dos móveis da parede da vista. Pedra/eletros/janela = referência, NUNCA cotados. Pedra só aparece nas vistas onde ela está. Cotas de altura a partir do piso pronto.
+6. Imagens limpas: peças desenhadas como caixas, só bordas, sem triangulação. **Só MDF** (sem suportes, dobradiças, cabideiros, pés). Nada atravessa portas/rodapé.
+7. Escala mínima 1:25. A4 paisagem, nada encosta no quadro.
+8. Fonte de dados: XML MONTADO + DXF exportados do Promob. DXF tem de vir com **uma camada por peça** (o de 16:02 serve; o de 16:11 veio agrupado por cor e NÃO serve). Janela e eletros ainda não vieram no DXF. Explodido = só Produção Nadecor. SketchUp/3DS não são usados.
 
 ## MOTOR (pronto para o João usar sem IA)
 
