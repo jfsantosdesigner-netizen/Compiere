@@ -37,6 +37,12 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 
 ## CORREÇÕES JÁ FEITAS (não refazer)
 
+- Planta: só móveis e paredes (sem forro/sanca/pedra/eletros); setas das vistas não se sobrepõem.
+- TODO nicho aberto (3+ painéis/tamponamentos, 2+ horizontais, até 2 m × 1,2 m; peças "Vista" fora) = DETALHE embaixo da tabela, balões só lá; vários detalhes lado a lado.
+- Item escondido atrás dos módulos (ex.: painel nas costas da ilha) = DETALHE - COSTAS visto de trás.
+- Cotas: parede/móvel pequeno amplia até 1:20 ou 1:15 (ocupando até 75% do espaço).
+- TEXTURA REAL (veio da madeira) no 3D: 3D vira imagem 170 dpi com a textura do material em cada face; texturas em `texturas/` (512 px). Precisa Pillow + numpy no PC (sem eles, cor lisa).
+
 - Mesma parede com módulos de profundidades diferentes (planos até 600 mm) = uma vista só.
 - DXF com todas as paredes numa peça só: motor usa as faces reais (não a caixa).
 - Eletros/objetos do ambiente (geladeira, micro, forno...) = referência cinza, sem cota. Eletro = volume (menor medida ≥ 40 mm), não confundir com porta solta.
@@ -64,7 +70,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 ## PENDENTE / PRÓXIMO
 
 0. João vai atualizar XML + DXF da `COZINHA 2` (com pedra, eletros, janela) → trazer e regerar; cotas devem mostrar janela/pedra/eletros como referência (ver prancha 05 do caderno aprovado). João conferir Cozinha 2 e Escritório na v10. Pontos vistos: cotas da planta (prancha 03) amontoadas; Painel Freijó 719x18x364 não está no DXF.
-1. João testar a v10 no PC (arrastar a pasta do ambiente no `GERAR_CADERNO.bat` de `C:\CLAUDE\motor v10`).
+1. João APROVAR na página de visualização; só depois atualizar o PC (`git pull` em `C:\CLAUDE\motor v10` + `pip install pillow numpy` se faltar). NÃO mexer no PC sem aprovação.
 2. Cotas da planta (prancha 03) amontoadas.
 3. Janela ainda não vem no DXF.
 3. Testar em um 3º projeto novo (cliente novo) para validar que o motor generaliza.
