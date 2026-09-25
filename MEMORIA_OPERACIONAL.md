@@ -39,7 +39,7 @@ Atualizado: 25/09/2026 · Substitui qualquer "MEMÓRIA OPERACIONAL" anterior (as
 
 - Planta: só móveis e paredes (sem forro/sanca/pedra/eletros); setas das vistas não se sobrepõem.
 - TODO nicho aberto (3+ painéis/tamponamentos, 2+ horizontais, até 2 m × 1,2 m; peças "Vista" fora) = DETALHE embaixo da tabela, balões só lá; vários detalhes lado a lado.
-- NICHO SUSPENSO (regra geral, não pontual): módulo com base ≥ 1,40 m e < 30% da largura com móvel embaixo (ex.: armário sobre geladeira) + tamponamentos encostados = DETALHE. Nicho grande (> 2 m) fica na imagem principal. Quadros de detalhe arrumados automaticamente (1..n linhas, formato de cada um).
+- NICHO SUSPENSO (regra geral, não pontual): módulo com base ≥ 1,40 m e < 30% da largura com móvel embaixo (ex.: armário sobre geladeira) + tamponamentos encostados = DETALHE. Nicho grande (> 2 m) fica na imagem principal. Quadros de detalhe ocupam a coluna inteira embaixo da tabela, com zoom só nas peças do detalhe. Balões NUNCA sobrepostos (desloca + traço de chamada). Tudo é REGRA do motor, nunca ajuste pontual.
 - Item escondido atrás dos módulos (ex.: painel nas costas da ilha) = DETALHE - COSTAS visto de trás.
 - Cotas: parede/móvel pequeno amplia até 1:20 ou 1:15 (ocupando até 75% do espaço).
 - Listagem BEM FRONTAL (câmera 3°). Contornos nítidos de paredes/janela/pedra (arestas reais, sem triangulação). Blocos QUADRADOS de eletro (12 faces) NÃO entram; fica objeto com forma real; em cima da pedra só cuba/cooktop (até 300 mm).
