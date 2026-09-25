@@ -122,6 +122,8 @@
 
 ## 6. NÃO FAZER (testado e reprovado / substituído)
 
+- **SETAS com nome e medida escritos na imagem → VETADO pelo João.** Identificação é SEMPRE por LISTA (tabela) + balões numerados. Não propor de novo.
+
 - 3D na diagonal pegando duas paredes na listagem (paredes na frente dos móveis) → **reprovado**.
 - "Nicho suspenso" (armário sobre geladeira vira detalhe mesmo com porta) → **errado**, substituído pela definição de nicho aberto.
 - Caixa (bbox) de parede em peça única → cobria tudo; usar faces reais.
