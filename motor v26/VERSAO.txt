@@ -16,7 +16,9 @@ v26 (25/09/2026) - nuvem, aguardando teste do João (9 projetos regerados; os 8 
  - Porta avulsa do XML (ID POR_...) = porta: não entra na listagem (como as outras portas)
  - Peça do DXF duplicada no lugar de uma peça listada (fora do XML) não é desenhada
  - Detalhe de NICHO não leva painel alto (tamponamento até o teto) encostado
- - Barrote/Cunha NÃO faz parte (João): lista só material
+ - Barrote/Cunha NÃO faz parte (João): lista só material (Cunha sai da listagem)
+ - LISTAGEM POLUÍDA (mais de 15 linhas) = DUAS pranchas: SUPERIORES e INFERIORES (ou PARTE 1 / PARTE 2), balões e tabela só de cada parte
+ - COTA É SÓ A VISTA FRONTAL (João): a prancha de cotas não tem mais a vista lateral
 
 v25 (25/09/2026) - PC: C:\CLAUDE\motor v25 (v24 fica de reserva)
  - DIVISÓRIA RIPADA, prancha da LATERAL: a tabela e os balões trazem SÓ as peças que APARECEM nessa imagem

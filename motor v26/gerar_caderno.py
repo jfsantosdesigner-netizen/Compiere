@@ -45,6 +45,7 @@ def ler_xml(path):
                     if re.search(r'lat|bas', ch.get('ID', ''), re.I) and modelo(ch): m = modelo(ch); break
             if 'EURONOBRE' in cn or 'PUX' in U: pux[d.split('(')[0].strip()] = 1; continue
             if 'FERRAG' in cn: ferr[d.strip()] = 1; continue
+            if re.match(r'\s*cunha', d, re.I): continue   # REGRA (v26, João): barrote/cunha não faz parte, lista só material
             if 'ACESS' in cn or U.startswith('ACE') or U.startswith('EUR_'): continue
             if '_POR_' in U or U.startswith('POR_'):   # REGRA (v26): porta avulsa do XML (POR_INF_CUR) = porta, não entra na listagem
                 if m: cores.setdefault('porta', OrderedDict())[m] = 1
@@ -1949,6 +1950,32 @@ for v, c in zip(com_img, cel):
 for j in range(1, _nc): p.draw_line((a.x0 + j * a.width / _nc, AREA.y0), (a.x0 + j * a.width / _nc, AREA.y1), color=PRETO, width=0.6)
 for j in range(1, _nr): p.draw_line((AREA.x0, a.y0 + j * a.height / _nr), (AREA.x1, a.y0 + j * a.height / _nr), color=PRETO, width=0.6)
 
+# REGRA (v26, João): LISTAGEM POLUÍDA (mais de 15 linhas) = DUAS pranchas: SUPERIORES (armários de cima e altos) e
+# INFERIORES (balcões). Cada uma com a tabela e os balões só das suas peças (numeração própria). Sem os dois grupos:
+# divide a parede ao meio (PARTE 1 / PARTE 2).
+LIST_MAX = 15; _extra = 0
+def _partes(s_):
+    global _extra
+    its = [i for w in s_['paredes'] for i in PW[w]['itens']]
+    if len(s_['linhas']) <= LIST_MAX or not its: return [s_]
+    sup = [i for i in its if (i['bb'][2] + i['bb'][5]) / 2 > 1300]; inf = [i for i in its if i not in sup]
+    if sup and inf: gs = [('SUPERIORES', sup), ('INFERIORES', inf)]
+    else:
+        f_ = FV[PW[s_['paredes'][0]]['key']]; al = 1 if f_[0] else 0
+        o_ = sorted(its, key=lambda i: (i['bb'][al] + i['bb'][al + 3]) / 2); h_ = len(o_) // 2
+        gs = [('PARTE 1', o_[:h_]), ('PARTE 2', o_[h_:])]
+    out = []
+    for k_, (nome, g) in enumerate(gs):
+        key = f"{s_['letra']}{k_ + 1}"; chv = []
+        for i in sorted(g, key=lambda i: (i['tipo'] != 'mod', i['n'])):
+            if (i['desc'], i['dim']) not in chv: chv.append((i['desc'], i['dim']))
+        for i in g: i['num_' + key] = chv.index((i['desc'], i['dim'])) + 1
+        lin = [(d, dm, '') for d, dm in chv]
+        if k_ == 0 and s_ is VW[0]: lin += [(d, dm, '*') for d, dm in nao_achados]
+        out.append(dict(letra=key, titulo=f"{s_['titulo']} - {nome}", linhas=lin, paredes=s_['paredes'], ids={id(i) for i in g}, primeiro=k_ == 0, base=s_))
+    _extra += len(out) - 1
+    return out
+
 # por bloco: listagem de cada parede (frontal) e depois as cotas do bloco (paredes lado a lado)
 for v in V:
     GS = [geom_parede(PW[w]) for w in v['paredes']]
@@ -1983,10 +2010,10 @@ for v in V:
             for i in its_v: i['num_' + lt_l] = chv_l.index((i['desc'], i['dim'])) + 1
             tabela(p, [(d, dm, '') for d, dm in chv_l], AREA_IN.x0, AREA_IN.y0)
             render3d(p, r_img, v['paredes'], letra=lt_l, itens=its_, ang=ang_, elev=6, dmin=5200, margem=60, isolado=True)
-    for s_ in ([] if v.get('divisoria') else v['subs']):
+    for s_ in ([] if v.get('divisoria') else [q_ for s0_ in v['subs'] for q_ in _partes(s0_)]):
         n += 1; p = nova_prancha(doc, n, f"MÓDULOS E PAINÉIS - {s_['titulo']}")
         yb = tabela(p, s_['linhas'], AREA_IN.x0, AREA_IN.y0)
-        if nao_achados and s_ is VW[0]:
+        if nao_achados and s_.get('base', s_) is VW[0] and s_.get('primeiro', True):
             p.insert_text((AREA_IN.x0, yb + 9), '* não localizado no DXF - conferir', fontname='helv', fontsize=6, color=(0.7, 0, 0))
         # REGRA (João): nicho pequeno/apertado ganha uma imagem só dele embaixo da tabela; continua desenhado na imagem
         # grande, mas os balões dele ficam SÓ no detalhe (imagem grande menos poluída)
@@ -1996,6 +2023,10 @@ for v in V:
         cts = [(w, c + [o for o in costas_paineis(PW[w]) if o not in c], 'costas') for w in s_['paredes'] for c in [costas(PW[w])] if c or costas_paineis(PW[w])]
         mps = [(w, t_) for w in s_['paredes'] for t_ in pequenos(PW[w])]
         rds = [(w, r_) for w in s_['paredes'] for r_ in [rodapes(PW[w])] if r_]
+        if s_.get('ids') is not None:   # prancha dividida: só os detalhes das peças desta parte
+            _ok = lambda c: any(id(i) in s_['ids'] for i in c)
+            nis = [(w, c) for w, c in nis if _ok(c)]; cts = [(w, c, t) for w, c, t in cts if _ok(c)]
+            mps = [(w, t_) for w, t_ in mps if _ok(t_['todos'])]; rds = [(w, r_) for w, r_ in rds if _ok(r_)]
         render3d(p, fz.Rect(AREA_IN.x0 + 258, AREA_IN.y0, AREA_IN.x1, AREA_IN.y1), s_['paredes'], letra=s_['letra'], contexto=True,
                  sem_balao={id(i) for _, c in nis for i in c} | {id(i) for _, c, _ in cts for i in c} | {id(i) for _, t_ in mps for i in t_['todos']} | {id(i) for _, r_ in rds for i in r_})
         nis = [(w, c, 'nicho') for w, c in nis] + cts + [(w, t_['mostra'], 'modulo') for w, t_ in mps] + [(w, r_, 'rodape') for w, r_ in rds]
@@ -2043,7 +2074,7 @@ for v in V:
     nc = len(GS); zm = max(G['ztop'] for G in GS)
     Wm = [G['vmax'] - G['vmin'] for G in GS]
     # REGRA (v16, João): parede sozinha na prancha -> a prancha se divide: FRONTAL à esquerda, LATERAL do móvel à direita
-    LT = geom_lateral(PW[v['paredes'][0]]) if nc == 1 else None
+    LT = None   # REGRA (v26, João): COTA É SÓ A VISTA FRONTAL. Não tem vista lateral na prancha de cotas.
     Wl = (LT['hmax'] + LT['esp'] + 350) if LT else 0
     # REGRA (v15, João): a elevação PREENCHE a prancha (parede a parede, piso ao teto), mesma escala nas colunas;
     # móvel pequeno não fica pequeno: escala sobe até 1:10. Colunas proporcionais ao tamanho de cada parede.
@@ -2145,7 +2176,7 @@ except Exception:
     import time as _t; cfg['saida'] = os.path.splitext(cfg['saida'])[0] + _t.strftime('_%H%M%S') + '.pdf'; doc.save(cfg['saida'], garbage=3, deflate=True)
 
 # ---------------- QUALIDADE (nível 1, por script) ----------------
-esperado = 4 + len(VW) + len(V) + len(DIVISORES) + len(DIVISORIAS) + len(BLOCOS) + len(GAVETAS)
+esperado = 4 + len(VW) + _extra + len(V) + len(DIVISORES) + len(DIVISORIAS) + len(BLOCOS) + len(GAVETAS)
 q = [f"# QUALIDADE — {cfg['dados']['cliente']} / {cfg['dados']['ambiente']} (gerado por script)", '',
      f"- {'APROVADO' if n == esperado else 'REPROVADO'} | nº de pranchas {n} = 4 + {len(VW)} listagens + {len(V)} cotas" + (f" + {len(DIVISORES)} divisor(es) de gaveta" if DIVISORES else '') + (f" + {len(GAVETAS)} gaveta(s) em painéis" if GAVETAS else '') + (f" | divisória ripada: {len(DIVISORIAS)}" if DIVISORIAS else ''),
      f"- {'APROVADO' if not nao_achados else 'INCERTO'} | itens localizados no DXF: {len(linhas) - len(nao_achados)}/{len(linhas)}"]

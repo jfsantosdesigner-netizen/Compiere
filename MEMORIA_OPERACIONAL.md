@@ -9,7 +9,7 @@
 | Item | Situação |
 |---|---|
 | Motor no PC | **v25** em `C:\CLAUDE\motor v25` (usa `C:\CLAUDE\MATERIAIS` direto). `motor v24`, `v23` e `v13` = reserva. |
-| Motor na nuvem | **v26** feita na nuvem (commit `8277e60` "v26: parede cortada..."), **AINDA NÃO ENVIADA ao GitHub**: nesta sessão o acesso de ESCRITA ao repositório do motor foi negado (só leitura). No GitHub: `main` = `v25`. Próxima sessão: pedir acesso push, refazer/enviar a v26 (ramo `v26` + `main`). v25 instalada no PC. |
+| Motor na nuvem | **v26 COMPLETA guardada no repositório Compiere, pasta `motor v26/`** (ramo `claude/pensive-hopper-rbahkx`) — o repositório do motor recusou o envio (só leitura nesta sessão). No motor: `main` = `v25` (intacta). Próxima sessão com acesso push: criar ramo `v26` no motor a partir dessa pasta. |
 | Versões guardadas | Ramos `v9` … `v25` no GitHub (v26 pendente de envio) (tags são bloqueadas pela conexão; por isso ramos). |
 | Ver cadernos sem baixar | Página privada: https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (9 abas, Priscila Cozinha primeiro, versão v26; republicar no mesmo link com `ferramentas/visualizador.py`). |
 | Projetos de teste | Caroline Cozinha (8 pr., 38/38) · Felipe Cozinha (8 pr., 30/30) · Rafael Cozinha 2 (10 pr., 41/41) · Rafael Escritório (6 pr., 7/7, agora com o DXF) · Rafael Suíte Casal (10 pr., 12/12) · Rafael Sala e Varanda (11 pr., 16/18) · Rafael Área de Serviço (6 pr., 10/10) · Priscila Suíte Casal – DESAFIO (18 pr. na v22, 61/63; PDF do João = referência das regras especiais; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\SUITE CASAL`). **Priscila Cozinha (v26, 13 pr., 51/53; PDF do João = referência; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\cozinha`)**. Todos em `exemplos/` no repositório (a Priscila Cozinha só no commit local da v26). |
@@ -19,6 +19,8 @@
 ---
 
 ## 2. PROTOCOLO DE TRABALHO (obrigatório)
+
+0. **Gastar pouco: não ficar girando. NUNCA alterar a versão anterior — sempre criar versão nova completa (pasta/ramo). Se o GitHub do motor recusar, guardar a versão completa no repositório Compiere (`motor vN/`).**
 
 1. **PC remoto (Desktop Commander, device JOAO-FELIPE) o MÍNIMO possível** — gasta muitos tokens. Um comando por vez, só para: trazer XML + DXF (zip em base64 num comando só), trazer texturas (só leitura), instalar versão aprovada.
 2. **Todo o trabalho é na nuvem**, no repositório do motor. Gerar e conferir lá.
@@ -71,7 +73,7 @@
 - Alturas a partir do **piso pronto**.
 - **A cota NÃO elimina as paredes**: a elevação abre parede a parede (face interna da parede lateral + espessura, até 4 m do móvel; sem parede = 300 mm) e do piso ao TETO (pé-direito do DXF). Parede toda na frente do fundo dos móveis não entra.
 - **O desenho preenche a prancha**: maior escala que cabe (1:10, 1:12,5, 1:15, 1:20, 1:25…), mesma escala nas colunas. Móvel pequeno NÃO fica pequeno.
-- **Parede sozinha na prancha de cotas → prancha DIVIDIDA: cota FRONTAL à esquerda + VISTA LATERAL do móvel à direita**, mesma escala (profundidade a partir da parede + alturas). NUNCA gerar prancha separada só da lateral. Duas paredes do L continuam lado a lado na mesma prancha.
+- ~~Parede sozinha na prancha de cotas → frontal + lateral~~ **SUBSTITUÍDA na v26: cota só frontal, sem lateral.** Duas paredes do L continuam lado a lado na mesma prancha.
 - **Cotas 2D com as MESMAS cores e texturas do 3D** (madeirado com veio, mármore; chapa 1830 × 2750, veio no comprimento). Cotas em vetor por cima.
 - Cadeias de altura por fora das paredes; móvel a mais de 600 mm da parede lateral → cadeia encostada no móvel.
 
@@ -88,7 +90,9 @@
 - **(v26) DIVISOR DE TALHER** (cozinha): mesma regra do divisor de gaveta, peças até 750 mm, conjunto até 800 × 800, peças deitadas (altura ≤ 100 no DXF).
 - **(v26) MÓDULO BAIXO / GIRADO** (adega 150 × 870 × 600 do Promob = 870 de largura, 150 de altura): achado (laterais de 100–150 mm só para módulo ≤ 200 mm).
 - **(v26)** Porta avulsa do XML (ID `POR_...`) = porta, não entra na listagem. Peça do DXF fora do XML duplicada no lugar de uma peça listada não é desenhada. Detalhe de NICHO não leva painel alto (até o teto) encostado.
-- **Barrote / Cunha 45° NÃO faz parte (João, v26)**: lista só material. Não tentar casar barrote.
+- **Barrote / Cunha 45° NÃO faz parte (João, v26)**: lista só material. Não tentar casar barrote. A Cunha sai da listagem.
+- **(v26, João) LISTAGEM POLUÍDA (mais de 15 linhas) = DUAS pranchas**: SUPERIORES (armários de cima e altos) e INFERIORES (balcões); sem os dois grupos, PARTE 1 / PARTE 2. Tabela, balões e detalhes só de cada parte.
+- **(v26, João) COTA É SÓ A VISTA FRONTAL** — a prancha de cotas NÃO tem vista lateral (substitui a regra da v16).
 - Ainda não feito (ver pendentes): sequência de montagem passo a passo (1º base, 2º laterais… como nas pranchas 12–15 do João) e avisos em amarelo ao montador.
 
 ### Planta (prancha 03)
@@ -151,7 +155,7 @@
 
 ## 7. PENDENTE / PRÓXIMO
 
-1. **Enviar a v26 ao GitHub** (ramo `v26` + `main`): acesso de escrita ao `motor-cadernos-compiere` foi negado nesta sessão. Sem isso, a v26 some com o container — na próxima sessão, se o commit não estiver lá, refazer pela lista da seção 3 (v26).
+1. **v26 está em `Compiere/motor v26/` (completa).** Criar o ramo `v26` no repositório do motor quando houver acesso push. **NUNCA alterar a versão anterior: cada versão é pasta/ramo NOVO e completo (João).**
 2. João conferir a **Priscila Cozinha v26** na página. Comparado com o PDF dele: FEITO = ilha (painel com nichos) em bloco, divisor de talher, adega, parede da pia dividida (cozinha / lado da churrasqueira). FALTA: sequência de montagem passo a passo (pranchas 05–08 e 12–14 dele), avisos em amarelo ao montador (LED, interruptor, "cliente instala spot"), listagem dividida superiores/inferiores (pranchas 04 e 08 dele), metalon (DXF só traz uma barra) e esquema elétrico (não vem no XML/DXF).
 3. Instalar no PC só depois da aprovação (`C:\CLAUDE\motor v26`; v25 fica de reserva).
 4. Comparar de novo com os cadernos feitos à mão: ângulo de câmera (olho ~1,6 m), janela/tomadas/portas (só se vierem no DXF), ordem das vistas.
