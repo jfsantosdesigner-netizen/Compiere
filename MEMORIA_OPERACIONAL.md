@@ -8,12 +8,12 @@
 
 | Item | Situação |
 |---|---|
-| Motor no PC | **v13** em `C:\CLAUDE\motor v13` (aprovada e instalada; Pillow + numpy OK). `motor v10` = reserva. |
-| Motor na nuvem | **v22** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v22`). **Aguarda aprovação** para ir ao PC (v14–v21 não foram instaladas). |
-| Versões guardadas | Ramos `v9` … `v22` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
+| Motor no PC | **v23** em `C:\CLAUDE\motor v23` (com a pasta MATERIAIS dentro). `motor v13` = reserva. |
+| Motor na nuvem | **v23** (GitHub `jfsantosdesigner-netizen/motor-cadernos-compiere`, ramo `main` = ramo `v23`). Instalada no PC em 25/09 a pedido do João. |
+| Versões guardadas | Ramos `v9` … `v23` no GitHub (tags são bloqueadas pela conexão; por isso ramos). |
 | Ver cadernos sem baixar | Página privada: https://claude.ai/artifact/XBbud5f2JXjymBFaGjdcYn (5 abas, Suíte Casal primeiro; republicar no mesmo link com `ferramentas/visualizador.py`). |
 | Projetos de teste | Caroline Cozinha (8 pr., 38/38) · Felipe Cozinha (8 pr., 30/30) · Rafael Cozinha 2 (10 pr., 41/41) · Rafael Escritório (6 pr., 7/7, agora com o DXF) · Rafael Suíte Casal (10 pr., 12/12) · Rafael Sala e Varanda (11 pr., 16/18) · Rafael Área de Serviço (6 pr., 10/10) · Priscila Suíte Casal – DESAFIO (18 pr. na v22, 61/63; PDF do João = referência das regras especiais; `C:\CLAUDE\CLIENTES\02_ORIGIN\PRISCILA\SUITE CASAL`). Todos em `exemplos/` no repositório, com o XML+DXF MAIS ATUAL do PC (conferido por hash em 25/09). |
-| Próximo | João conferir a v16 na página e aprovar → instalar `C:\CLAUDE\motor v22`. |
+| Próximo | João testar a v23 no PC (arrastar a pasta no GERAR_CADERNO.bat de C:\CLAUDE\motor v23). Puxadores: descobrir como exportar do Promob. |
 | Referência | Cadernos feitos À MÃO pelo João (modelo das imagens): Suíte Casal, Caroline, Felipe, Cozinha 2 (Área de Serviço), Escritório — comparar sempre as imagens do motor com eles. |
 
 ---
@@ -24,7 +24,7 @@
 2. **Todo o trabalho é na nuvem**, no repositório do motor. Gerar e conferir lá.
 3. **Nada vai para o PC sem o João aprovar.** Instalação = `git clone --depth 1 -b vN` em `C:\CLAUDE\motor vN` (a anterior fica de reserva) + conferir Pillow/numpy.
 4. **Toda correção é REGRA do motor**, nunca ajuste só para um projeto. **O motor é REGRAS + CONDIÇÕES**: o que está certo NÃO se apaga; cada situação nova (projeto novo) vira uma CONDIÇÃO nova que só atua quando aparece. Sempre regerar todos os projetos e conferir que os que não têm a situação não mudaram.
-5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v23**.
+5. **Cada rodada de correções = nova versão**: atualizar `VERSAO.txt`, caminhos do `padrao.json` (`motor vN`), commit, ramo `vN` no GitHub. Próxima = **v24**.
 6. **A cada versão, regerar os 8 projetos de teste (a Priscila testa as regras especiais)** + o novo, e republicar a página de visualização.
 7. **Memória fica SÓ na nuvem** (repositório `Compiere`: este arquivo + PDF). Nunca gravar memória no PC.
 8. Cadernos para o João ver: sempre pela página (o visualizador de PDF do app falha).
@@ -85,6 +85,7 @@
 - Ainda não feito (ver pendentes): sequência de montagem passo a passo (1º base, 2º laterais… como nas pranchas 12–15 do João) e avisos em amarelo ao montador.
 
 ### Planta (prancha 03)
+- **Regra geral (v23): UMA cota por parede = COMPRIMENTO TOTAL dos móveis** (planta limpa, como a do João). Nunca cotar peça por peça.
 - Só **móveis e paredes** (sem forro, sanca, pedra, eletros por cima). Paredes em peça única desenhadas pelas faces verticais (vãos abertos). Setas das vistas não se sobrepõem.
 
 ### Especificações (prancha 03, modelo fixo do João)
@@ -93,6 +94,11 @@
 ---
 
 ## 4. FONTE DE DADOS (exportação do Promob)
+
+- **PROIBIDO pegar qualquer imagem ou conteúdo dos PDFs/cadernos executivos do João para gerar o caderno. O motor gera TUDO sozinho (XML + DXF). Nunca mexer nos cadernos executivos dele.** Os PDFs dele servem só para ler ideias de regra.
+- **Materiais**: o motor procura sozinho na pasta `MATERIAIS` DENTRO dele (`C:\CLAUDE\motor vN\MATERIAIS`, cópia REDUZIDA de `C:\CLAUDE\MATERIAIS` (3,1 GB → texturas em 512 px, mesmos nomes); fora do Git), depois no config, por último `C:\CLAUDE\MATERIAIS`.
+- **Acervo do Promob** (`C:\Program Files\Promob\Promob Plus\System\bibliotecas`, ~4 GB, 158 mil arquivos; .PMOB/.MOB3D/.entity = formato binário do Promob, não usável): reduzido em `C:\CLAUDE\motor vN\BIBLIOTECA_PROMOB` = imagens em 256 px + modelos .obj/.mtl (forma 3D real; 64 de puxadores) + `indice.json` (biblioteca, nome, tipo, caminho, puxador/ferragem). Ferramenta: `ferramentas/reduzir_acervo.py materiais|promob` (roda no PC; pode rodar de novo). Uso futuro: puxador/ferragem diferente → procurar no índice.
+- **Puxadores NÃO vêm no DXF** (conferido em 25/09: só faces/malhas das peças; as plaquinhas 13×26 atrás das portas são dobradiças). Regra que gerava o puxador pelo lado oposto às dobradiças ficou DESLIGADA (João: posições erradas).
 
 - **Tudo sai do XML + DXF pelo motor.** Os PDFs feitos à mão pelo João são só REFERÊNCIA visual para comparar; nada (cor, medida, imagem) é tirado deles.
 - Cor = nome do material no XML → tabela `materiais_cores.json` (ex.: "Metallic Sued" do XML casou com "Metalic Suede" da tabela).
@@ -131,7 +137,7 @@
 
 ## 7. PENDENTE / PRÓXIMO
 
-1. João conferir a **v22** na página (Suíte Casal + 4 projetos) e dizer o que ainda está errado nas imagens → v16.
+1. João testar a **v23** no PC e conferir na página; o que estiver errado vira condição/regra nova → v24.
 2. Aprovada → instalar em `C:\CLAUDE\motor v22` (a v13 fica de reserva).
 3. Comparar de novo com os cadernos feitos à mão: ângulo de câmera (altura do olho ~1,6 m, perspectiva mais aberta), janela/tomadas/portas do ambiente (só se vierem no DXF), ordem das vistas (João começou pelo armário maior).
 4. Cotas da planta (prancha 03) ainda amontoadas.
