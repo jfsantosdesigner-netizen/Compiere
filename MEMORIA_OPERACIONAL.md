@@ -164,3 +164,10 @@
 7. **AGUARDANDO CONFIRMAÇÃO DO JOÃO (não aplicar antes):** armário em L = uma prancha de cotas dividida AO MEIO, uma parede em cada metade; em cada metade a parte do canto que vai para a outra parede aparece DE LADO (lateral do armário, fechada, cor real) e entra na cadeia de baixo com a largura (ex.: 550 | 520 | 580 e 580 | 620). Referência: PDF do João “Dormitório Casal – Felipe Machado”, prancha 05. Falta o XML+DXF desse projeto (não achado no PC).
 8. Onde estão os projetos no PC: `C:\CLAUDE\PROJETO RAFAEL CLARET\<AMBIENTE>` e `C:\CLAUDE\CLIENTES\02_ORIGIN\<CLIENTE>`.
 9. Suíte Priscila na v26: a "Frente de Gaveta Reta 406x130x18" (não achada no DXF) saiu da listagem pela regra da porta avulsa — confirmar com o João.
+
+
+## v27 (26/09/2026) — REGRA GERAL: TUDO QUE ESTÁ NA LISTA APARECE NÍTIDO
+- Peça listada que NÃO aparece na imagem principal (escondida embaixo/atrás/entre módulos) ou balões AMONTOADOS (3+ a até 22 pt) → sai da imagem principal e vai para SUB-IMAGEM "COMO FICA MONTADO" (só a peça + móveis encostados, sem ambiente; vista de baixo se estiver no alto).
+- UMA sub-imagem por prancha: a prancha é REPLICADA ("… – DETALHE n"), 3D principal ao lado. Sem limite de pranchas.
+- Leitura guardada do DXF confere hash (DXF mudou → lê de novo). Removido o modo antigo que puxava listagem/imagens de PDF.
+- A outra conversa (v26) foi PARADA pelo João (se perdeu). Esta memória + ramo v27 do motor são a referência. Próxima = v28.
