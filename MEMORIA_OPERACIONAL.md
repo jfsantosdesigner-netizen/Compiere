@@ -1,6 +1,6 @@
 # MEMÓRIA OPERACIONAL — MOTOR DE CADERNOS COMPIERE
 
-**Reescrita do zero em 25/09/2026; atualizada na v26.** Este arquivo é a ÚNICA fonte. Ignore qualquer memória ou conversa anterior. Só está aqui o que foi testado e aprovado.
+**Reescrita do zero em 25/09/2026; atualizada na v31 (ver seções vNN no fim).** Este arquivo é a ÚNICA fonte. Ignore qualquer memória ou conversa anterior. Só está aqui o que foi testado e aprovado.
 
 ---
 
@@ -189,3 +189,11 @@
 - v29: peça com medida+cor do XML nunca é geometria; VOLTA o DETALHE - COSTAS da v21 (peça atrás de painel), sempre.
 - LIÇÃO: testar versão nova também em PROJETO REAL novo, não só nos 9 de teste.
 - PC: motor v25, v26, v27, v28 e v29 em C:\CLAUDE. Cadernos Guilherme gerados no PC pela v29 (… v29.pdf nas pastas dele no Desktop).
+
+## v31 (26/09/2026) — ERROS DA v30 NOS DOIS PROJETOS DO GUILHERME (Cozinha e Suíte)
+- **COTAS = PORTAS ABERTAS de verdade**: portas (inclusive de CORRER, ex.: guarda-roupa da Suíte) não são desenhadas na cota; o interior (prateleiras, divisórias, vãos) aparece e é cotado. Regra: painel fino na frente do módulo, largo e alto = porta → fora da cota.
+- **NICHO só com FRENTE ABERTA**: módulo com portas cobrindo a frente não vira detalhe de nicho.
+- **Ilha/península baixa sem parede atrás**: cota não sobe até o teto (móvel até 1,2 m → desenho vai só 300 mm acima dele) → desenho bem maior.
+- NÃO eram erro: detalhe do nicho da geladeira (visto de lado); faixa de 364 mm na Suíte (armário suspenso a 364 mm); pranchas de detalhe v21/v28 (regras do João).
+- NÃO DÁ pelos dados (faltam no DXF): Suíte — fechamentos 70 mm e gaveta; Cozinha — Armário 684x660x510 e Painel Itapuã 2550x25x650.
+- Motor: `main` = ramo `v31`. Página com 11 abas (Guilherme primeiro), dpi 78 para caber em 16 MB. PC: v31 NÃO instalada (aguarda aprovação). Próxima = v32.
