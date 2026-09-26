@@ -196,4 +196,4 @@
 - **Ilha/península baixa sem parede atrás**: cota não sobe até o teto (móvel até 1,2 m → desenho vai só 300 mm acima dele) → desenho bem maior.
 - NÃO eram erro: detalhe do nicho da geladeira (visto de lado); faixa de 364 mm na Suíte (armário suspenso a 364 mm); pranchas de detalhe v21/v28 (regras do João).
 - NÃO DÁ pelos dados (faltam no DXF): Suíte — fechamentos 70 mm e gaveta; Cozinha — Armário 684x660x510 e Painel Itapuã 2550x25x650.
-- Motor: `main` = ramo `v31`. Página com 11 abas (Guilherme primeiro), dpi 78 para caber em 16 MB. PC: v31 NÃO instalada (aguarda aprovação). Próxima = v32.
+- Motor: `main` = ramo `v31`. Página com 11 abas (Guilherme primeiro), dpi 78 para caber em 16 MB. PC: v31 INSTALADA em C:\CLAUDE\motor v31 (aprovada pelo João em 26/09; v30 fica de reserva). Próxima = v32.
