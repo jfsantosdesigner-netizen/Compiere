@@ -182,4 +182,4 @@
 - Divisor/gaveta de painéis: imagem pequena "ONDE FICA". Painel com nichos: 2ª imagem na diagonal; ripas centrais listadas na lateral da divisória.
 - PLANTA: cota de CADA CONJUNTO de móveis (comprimento + largura), sem cotar o vão entre conjuntos.
 - NÃO DÁ pelos dados: Frente de Gaveta Reta 406x130x18 e Gaveta Corrediça Telescópica não vêm no DXF.
-- Página: dpi 95 (limite 16 MB). Ramo v28 do motor. PC continua com v25 (instalar v28 só com aprovação). Próxima = v29.
+- Página: dpi 95 (limite 16 MB). Ramo v28 do motor. PC: v28 INSTALADA em C:\CLAUDE\motor v28 (testada, Felipe APROVADO); versões antigas APAGADAS a pedido do João; resto do C:\CLAUDE o João limpa. Próxima = v29.
