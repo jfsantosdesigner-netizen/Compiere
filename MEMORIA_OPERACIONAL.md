@@ -171,3 +171,15 @@
 - UMA sub-imagem por prancha: a prancha é REPLICADA ("… – DETALHE n"), 3D principal ao lado. Sem limite de pranchas.
 - Leitura guardada do DXF confere hash (DXF mudou → lê de novo). Removido o modo antigo que puxava listagem/imagens de PDF.
 - A outra conversa (v26) foi PARADA pelo João (se perdeu). Esta memória + ramo v27 do motor são a referência. Próxima = v28.
+
+## v28 (26/09/2026) — 25 COMENTÁRIOS DO JOÃO NA PÁGINA (viraram regras gerais)
+- SUB-IMAGEM: peça no alto = vista DE CIMA para baixo; peça embaixo = de baixo; só os MÓDULOS onde a peça está; SEM PORTAS (mostra o que tem dentro, ex.: cantoneira). Amontoado = 3+ balões a até 16 pt.
+- Peça suspensa sob tampo (gaveta de teclado) e módulo de CANTO ganham sub-imagem. UM detalhe por prancha (prancha replicada "– DETALHE n").
+- "Costas atrás de painel" (v21) trocado pela regra geral de peça escondida (v27).
+- "Parede" com até 2 peças encostadas em móvel de outra parede junta nela (Sala C/D resolvido).
+- VISÃO GERAL: mais de 4 vistas = uma imagem diagonal para cada 2 vistas.
+- Móvel feito com GEOMETRIA (DXF sem XML) encostado em móvel = referência na imagem, igual à pedra (sem lista/cota). "Gôndola" era erro de leitura: é GEOMETRIA.
+- Divisor/gaveta de painéis: imagem pequena "ONDE FICA". Painel com nichos: 2ª imagem na diagonal; ripas centrais listadas na lateral da divisória.
+- PLANTA: cota de CADA CONJUNTO de móveis (comprimento + largura), sem cotar o vão entre conjuntos.
+- NÃO DÁ pelos dados: Frente de Gaveta Reta 406x130x18 e Gaveta Corrediça Telescópica não vêm no DXF.
+- Página: dpi 95 (limite 16 MB). Ramo v28 do motor. PC continua com v25 (instalar v28 só com aprovação). Próxima = v29.
