@@ -183,3 +183,9 @@
 - PLANTA: cota de CADA CONJUNTO de móveis (comprimento + largura), sem cotar o vão entre conjuntos.
 - NÃO DÁ pelos dados: Frente de Gaveta Reta 406x130x18 e Gaveta Corrediça Telescópica não vêm no DXF.
 - Página: dpi 95 (limite 16 MB). Ramo v28 do motor. PC: v28 INSTALADA em C:\CLAUDE\motor v28 (testada, Felipe APROVADO); versões antigas APAGADAS a pedido do João; resto do C:\CLAUDE o João limpa. Próxima = v29.
+
+## v29 (26/09/2026) — ERROS DA v28 NO PROJETO REAL (Guilherme Cesar)
+- v28 reprovada pelo João em projeto real: (1) regra "geometria" pegava PORTAS do XML e pintava de cinza por cima; (2) sarrafos atrás da cabeceira em sub-imagem errada (painel tampando / junto do criado-mudo).
+- v29: peça com medida+cor do XML nunca é geometria; VOLTA o DETALHE - COSTAS da v21 (peça atrás de painel), sempre.
+- LIÇÃO: testar versão nova também em PROJETO REAL novo, não só nos 9 de teste.
+- PC: motor v25, v26, v27, v28 e v29 em C:\CLAUDE. Cadernos Guilherme gerados no PC pela v29 (… v29.pdf nas pastas dele no Desktop).
